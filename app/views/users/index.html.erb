@@ -1,11 +1,5 @@
 <head>
   <h1>Mountain Map</h1>
-    <style>
-      #map-canvas {
-        width: 1000px;
-        height: 800px;
-      }
-    </style>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script>
       function initialize() {
@@ -20,7 +14,7 @@
         function addMarker(feature) {
             var marker = new google.maps.Marker({
               position: feature.position,
-              icon: 'https://maps.google.com/mapfiles/kml/shapes/ski.png',
+              icon: 'http://blog.breckenridge.com/wp-content/uploads/2013/01/BRK4360_Liam_Doran-300x200.jpg',
               map: map
             });
         };
