@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  # get 'instagram/index'
+  
+  resources :instagram, only: [:index, :new]
+  get 'auth/:provider/callback' => 'instagram#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
