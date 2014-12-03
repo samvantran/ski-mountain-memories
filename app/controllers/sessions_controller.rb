@@ -26,12 +26,12 @@ class SessionsController < ApplicationController
   def sub_callback
     # Instagram.meet_challenge(params)
     # process_subscription(json, options={}, &block)
-
+# Instagram.create_subscription("tag", "https://ski-mountain-memories.herokuapp.com/sessions/sub_callback", object_id: "snow")
     if params["hub.challenge"]
       render :text => params["hub.challenge"]
     else
-      redirect_to users_show_path
-      Instagram.process_subscription(json)
+      # redirect_to users_show_path
+      # Instagram.process_subscription(json)
     end
 
   end
