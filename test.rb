@@ -1,9 +1,25 @@
 
-# https://api.instagram.com/v1/users/1582526975/media/recent/?access_token=1582526975.d32b73d.9578661346ed42e2b3369b9f65acbe45
+Instagram.create_subscription("tag", "http://localhost:3000/sessions/sub_callback", options: {object_id: "snow"})
+
+# :object_id (String, Integer) — When specifying a location or tag use the location's ID or tag name respectively
+# :lat (String, Float) — The center latitude of an area, used when subscribing to a geography object
+# :lng (String, Float) — The center longitude of an area, used when subscribing to a geography object
+# :radius (String, Integer) — The distance in meters you'd like to capture around a given point
+#create_subscription(object, callback_url, aspect = "media", options = {}) ⇒ Hashie::Mash
 
 
-#   client = Instagram.client(:access_token => "1582526975.d32b73d.9578661346ed42e2b3369b9f65acbe45")
-#   user = client.user
+# curl -F 'client_id=CLIENT-ID' \
+#      -F 'client_secret=CLIENT-SECRET' \
+#      -F 'object=user' \
+#      -F 'aspect=media' \
+#      -F 'verify_token=myVerifyToken' \
+#      -F 'callback_url=http://YOUR-CALLBACK/URL' \
+#      https://api.instagram.com/v1/subscriptions/
+# # https://api.instagram.com/v1/users/1582526975/media/recent/?access_token=1582526975.d32b73d.9578661346ed42e2b3369b9f65acbe45
+
+
+# #   client = Instagram.client(:access_token => "1582526975.d32b73d.9578661346ed42e2b3369b9f65acbe45")
+# #   user = client.user
 #  client.user_recent_media
 # # media_item.images.thumbnail.url
 
