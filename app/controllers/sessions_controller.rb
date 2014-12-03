@@ -43,8 +43,6 @@ class SessionsController < ApplicationController
         caption: response[:data][photo_i][:caption][:text])
     end
 
-    end
-
   end
 
 
