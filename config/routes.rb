@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'trips/create'
 
   resources :instagram, only: [:index, :new]
-  resources :sessions, only: [:new, :create, :destroy, :sub_callback]
+  resources :sessions, only: [:new, :create, :destroy]
 
 get 'sessions/sub_callback' => 'sessions#sub_callback'
 post 'sessions/sub_callback' => 'sessions#sub_callback'
