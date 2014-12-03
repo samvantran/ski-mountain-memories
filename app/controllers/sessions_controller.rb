@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
       render :text => params["hub.challenge"]
     else
       @params=params
-      @user =User.create(user_name: "got a new instaagram")
+      @user =User.create(user_name: rand(1000))
       # redirect_to users_show_path
       # Instagram.process_subscription(json)
     end
