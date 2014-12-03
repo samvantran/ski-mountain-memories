@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  protect_from_forgery :except => [:sub_callback]
+
   def new
     redirect_to Instagram.authorize_url(:redirect_uri => ENV["IG_CALLBACK"])
   end
