@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     response = Instagram.get_access_token(params[:code], :redirect_uri => ENV["IG_CALLBACK"])
     session[:access_token] = response.access_token
-    # raise response.inspect
+
     if session[:access_token]
       binding.pry
       User.find_by(ig_id: response.id) || User.create(user_name: response.user.username, ig_id: response.user.id, ig_profile_url: response.user.profile_picture)
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to new_instagram_path
+    redirect_to new_instagram_path, :notice => "You've successfully logged out."
   end
 end
 
