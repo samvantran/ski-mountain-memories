@@ -34,6 +34,7 @@ class SessionsController < ApplicationController
     else
       # redirect_to users_show_path
       # Instagram.process_subscription(json)
+      redirect_to root_path
     end
 
   end
