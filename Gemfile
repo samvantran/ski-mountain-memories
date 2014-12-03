@@ -59,3 +59,4 @@ end
 gem "bootstrap-sass", "~> 3.1.1"
 gem "figaro"
 gem "instagram"
+
