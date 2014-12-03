@@ -1,5 +1,15 @@
 
+
+# Instagram.create_subscription("user", "https://ski-mountain-memories.herokuapp.com/sessions/sub_callback")
 # Instagram.create_subscription("tag", "http://localhost:3000/sessions/sub_callback", options: {object_id: "snow"})
+
+
+# ##user
+# Parameters: {"_json"=>[{"changed_aspect"=>"media", "object"=>"user", "object_id"=>"1582526975", "time"=>1417644596, "subscription_id"=>14946993, "data"=>{"media_id"=>"867588213728797407_1582526975"}}], "session"=>{"_json"=>[{"changed_aspect"=>"media", "object"=>"user", "object_id"=>"1582526975", "time"=>1417644596, "subscription_id"=>14946993, "data"=>{"media_id"=>"867588213728797407_1582526975"}}]}}
+
+# ##tags
+# Parameters: {"_json"=>[{"changed_aspect"=>"media", "object"=>"tag", "object_id"=>"potatojimmy1964", "time"=>1417644904, "subscription_id"=>14947125, "data"=>{}}], "session"=>{"_json"=>[{"changed_aspect"=>"media", "object"=>"tag", "object_id"=>"potatojimmy1964", "time"=>1417644904, "subscription_id"=>14947125, "data"=>{}}]}}
+
 
 # # :object_id (String, Integer) — When specifying a location or tag use the location's ID or tag name respectively
 # # :lat (String, Float) — The center latitude of an area, used when subscribing to a geography object
