@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  protect_from_forgery :except => [:sub_callback]
+
   def new
     redirect_to Instagram.authorize_url(:redirect_uri => ENV["IG_CALLBACK"])
   end
@@ -24,18 +26,25 @@ class SessionsController < ApplicationController
   end
 
   def sub_callback
-    # Instagram.meet_challenge(params)
-    # process_subscription(json, options={}, &block)
+# Instagram.create_subscription("user", "https://ski-mountain-memories.herokuapp.com/sessions/sub_callback")
+# Instagram.create_subscription("tag", "http://localhost:3000/sessions/sub_callback", options: {object_id: "snow"})
+#also delete subscriptins sometime
 
     if params["hub.challenge"]
       render :text => params["hub.challenge"]
     else
-      raise params.inspect
-      Instagram.process_subscription(json)
+      current_tag=params[:_json][0][:object_id]#the tag that just popped
+      response=Instagram.tag_recent_media(current_tag)
+      Media.create(trip_id: XX, 
+        photo: response[:data][photo_i][:type],
+        time_taken: response[:data][photo_i][:created_time], 
+        thumbnail_url: response[:data][photo_i][:images][:thumbnail][:url], 
+        standard_url: response[:data][photo_i][:images][:standard_resolution][:url], 
+        caption: response[:data][photo_i][:caption][:text])
     end
 
   end
 
 
-end
+end#class end
 
