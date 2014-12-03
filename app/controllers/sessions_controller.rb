@@ -27,8 +27,10 @@ class SessionsController < ApplicationController
     # Instagram.meet_challenge(params)
     # process_subscription(json, options={}, &block)
 
-    # if params["hub.challenge"]
-    # render :text => params["hub.challenge"]
+    if params["hub.challenge"]
+    render :text => params["hub.challenge"]
+    end
+  
   end
 
 
