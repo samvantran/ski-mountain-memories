@@ -1,3 +1,4 @@
+git add . --all
 git commit -am "deploying..."
 git push
 git push heroku
