@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
     if params["hub.challenge"]
       render :text => params["hub.challenge"]
     else
-      binding.pry
+      redirect_to users_show_path
       Instagram.process_subscription(json)
     end
 
