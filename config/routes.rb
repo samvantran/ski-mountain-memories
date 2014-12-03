@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'instagram#index'
   
   get 'users/show'
 
