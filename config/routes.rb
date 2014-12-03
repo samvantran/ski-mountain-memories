@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'instagram#index'
   
   get 'users/show'
 
@@ -13,8 +14,10 @@ Rails.application.routes.draw do
   get 'trips/create'
 
   resources :instagram, only: [:index, :new]
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy, :sub_callback]
 
+get 'sessions/sub_callback' => 'sessions#sub_callback'
+post 'sessions/sub_callback' => 'sessions#sub_callback'
 
   get 'instagram/oauth/connect'   => 'sessions#new'
   get 'oauth/callback'            => 'sessions#create'
