@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   
   resources :instagram, only: [:index, :new]
-  resources :sessions, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
+
 
   get 'instagram/oauth/connect'   => 'sessions#new'
   get 'oauth/callback'            => 'sessions#create'
+  get '/sessions/destroy'         => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
