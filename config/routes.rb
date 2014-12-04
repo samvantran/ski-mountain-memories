@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'users/show'
 
-resources :trips
+  resources :trips
 
   resources :instagram, only: [:index, :new]
   resources :sessions, only: [:new, :create, :destroy]

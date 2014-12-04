@@ -18,31 +18,6 @@ $(function() {
     };
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
-    // function addMarker(feature) {
-    //     var marker = new google.maps.Marker({
-    //       position: feature.position,
-    //       icon: feature.type,
-    //       map: map
-    //     });
-    // };
-
-    // var features = [
-    //     {
-    //       position: new google.maps.LatLng(40.704536, -74.014711),
-    //       type: 'http://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wpdms_20020923b_bowling_green_composite.jpg/250px-Wpdms_20020923b_bowling_green_composite.jpg'
-    //     }, {
-    //       position: new google.maps.LatLng(40.705585, -74.013434),
-    //       type: 'http://revolutionaryday.com/usroute9w/nyc/bwowlinggrn.jpg'
-    //     }, {
-    //       position: new google.maps.LatLng(39.470746, -106.083668),
-    //       type: 'http://www.turnagaintimes.com/current%20issue/2010-02-18/images/cross-country-trails.jpg'
-    //     },
-    // ];
-
-    // for (var i = 0, feature; feature = features[i]; i++) {
-    //     addMarker(feature);
-    // };
-
     function addMarker(visual) {
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(visual.lat, visual.lng),
