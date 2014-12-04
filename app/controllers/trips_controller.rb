@@ -6,6 +6,7 @@ class TripsController < ApplicationController
     @lat = @trip.mountain.lat
     @lng = @trip.mountain.lng
     @zoom_level = @trip.mountain.zoom_level
+    @visuals = @trip.visuals
   end
 
   def edit
@@ -16,10 +17,11 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    3.times { @trip.users.build }
   end
 
   def create
-    trip = Trip.new(mountain_id: params[:trip][:mountain_id], hashtag: params[:trip][:mountain_id])
+    trip = Trip.new(mountain_id: params[:trip][:mountain_id], hashtag: params[:trip][:hashtag])
     trip.save
 
     redirect_to trip_path(trip.id)

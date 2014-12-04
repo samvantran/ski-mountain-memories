@@ -4,6 +4,11 @@
   <%= f.select :mountain_id, Mountain.all.collect {|m| [m.name, m.id]}, {prompt: 'select mountain'} %>
 
   <h2>Who are you going with?</h2>
+  <%= f.fields_for :users do |users_fields| %>
+    <p>
+    <%= users_fields.text_field :user_name, :value => 'add your friend\'s instagram name'%>
+    </p>
+  <% end %>
 
   <h2>What's your trip hashtag?</h2>
   <%= f.text_field :hashtag %><br>

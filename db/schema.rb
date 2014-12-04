@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203222631) do
-
-  create_table "media", force: true do |t|
-    t.integer  "trip_id"
-    t.boolean  "photo"
-    t.datetime "time_taken"
-    t.string   "thumbnail_url"
-    t.string   "standard_url"
-    t.string   "caption"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20141204210215) do
 
   create_table "mountains", force: true do |t|
     t.string   "name"
@@ -50,6 +39,19 @@ ActiveRecord::Schema.define(version: 20141203222631) do
     t.string   "user_name"
     t.integer  "ig_id"
     t.string   "ig_profile_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "visuals", force: true do |t|
+    t.integer  "trip_id"
+    t.boolean  "photo"
+    t.datetime "time_taken"
+    t.string   "thumbnail_url"
+    t.string   "standard_url"
+    t.string   "caption"
+    t.float    "lat"
+    t.float    "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
