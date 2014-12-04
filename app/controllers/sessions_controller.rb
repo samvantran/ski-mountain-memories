@@ -10,12 +10,12 @@ class SessionsController < ApplicationController
     session[:access_token] = response.access_token
 
     if session[:access_token]
-      if !User.find_by(ig_id: response.user.id)
-        User.create(user_name: response.user.username, ig_id: response.user.id, ig_profile_url: response.user.profile_picture)
-      end
+      User.find_by(ig_id: response.user.id) || User.create( user_name: response.user.username, 
+                                                            ig_id: response.user.id, 
+                                                            ig_profile_url: response.user.profile_picture)
 
-      hashtag = "snowymountain42"
-      Instagram.create_subscription("tag", "https://ski-mountain-memories.herokuapp.com/sessions/sub_callback", object_id: hashtag)
+      # hashtag = "snowymountain42"
+      # Instagram.create_subscription("tag", "https://ski-mountain-memories.herokuapp.com/sessions/sub_callback", object_id: hashtag)
       
       redirect_to instagram_index_path, :notice => "You have added snowymountain42"
     else
@@ -39,10 +39,16 @@ class SessionsController < ApplicationController
 
       response = Instagram.tag_recent_media(current_tag)
       response.each do |visual|
-        Visual.create(trip_id: 1, media_type: visual[:type], time_taken: visual[:created_time], thumbnail_url: visual[:images][:thumbnail][:url], standard_url: visual[:images][:standard_resolution][:url], caption: visual[:caption][:text], lat: visual[:location][:latitude], lng: visual[:location][:longitude])
-      end
-
-     
+        Visual.create(  
+          trip_id:        1, 
+          media_type:     visual[:type], 
+          time_taken:     visual[:created_time], 
+          thumbnail_url:  visual[:images][:thumbnail][:url], 
+          standard_url:   visual[:images][:standard_resolution][:url], 
+          caption:        visual[:caption][:text], 
+          lat:            visual[:location][:latitude], 
+          lng:            visual[:location][:longitude])
+      end     
     end
     return true
   end
