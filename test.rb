@@ -1,4 +1,5 @@
-
+#custom url for subscriptiosn
+# https://api.instagram.com/v1/subscriptions?verify_token=111&client_id=d32b73dde5564a2aad9f6e6683314486&client_secret=ddb38cdf85004a1086f3721f8a59c1c0
 
 # Instagram.create_subscription("user", "https://ski-mountain-memories.herokuapp.com/sessions/sub_callback")
 # Instagram.create_subscription("tag", "http://localhost:3000/sessions/sub_callback", options: {object_id: "snow"})
