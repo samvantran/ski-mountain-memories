@@ -2,19 +2,9 @@ Rails.application.routes.draw do
   
   get 'users/show'
 
-  get 'trips/show'
-
-  get 'trips/edit'
-
-  get 'trips/update'
-
-  get 'trips/new'
-
-  get 'trips/create'
-
+  resources :trips, except: [:index, :destroy]
   resources :instagram, only: [:index, :new]
   resources :sessions, only: [:new, :create, :destroy]
-
 
   get 'instagram/oauth/connect'   => 'sessions#new'
   get 'oauth/callback'            => 'sessions#create'
