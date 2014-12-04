@@ -3,21 +3,12 @@ Rails.application.routes.draw do
   
   get 'users/show'
 
-  get 'trips/show'
-
-  get 'trips/edit'
-
-  get 'trips/update'
-
-  get 'trips/new'
-
-  get 'trips/create'
-
+  resources :trips, except: [:destroy]
   resources :instagram, only: [:index, :new]
   resources :sessions, only: [:new, :create, :destroy]
 
-get 'sessions/sub_callback' => 'sessions#sub_callback'
-post 'sessions/sub_callback' => 'sessions#sub_callback'
+  get 'sessions/sub_callback' => 'sessions#sub_callback'    # for instagram subscriptions
+  post 'sessions/sub_callback' => 'sessions#sub_callback'
 
   get 'instagram/oauth/connect'   => 'sessions#new'
   get 'oauth/callback'            => 'sessions#create'
