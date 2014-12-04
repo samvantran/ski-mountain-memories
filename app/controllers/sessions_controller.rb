@@ -35,14 +35,17 @@ class SessionsController < ApplicationController
       current_tag = params[:_json][0][:object_id]         #the tag that just popped
       
       response = Instagram.tag_recent_media(current_tag)
+      puts response
       response.each_with_index do |media, idx|
 
-        Media.create( trip_id:        1, # need to add trip id
+        Visual.create( trip_id:        1, # need to add trip id
                       photo:          response[:data][idx][:type],
                       time_taken:     response[:data][idx][:created_time], 
                       thumbnail_url:  response[:data][idx][:images][:thumbnail][:url], 
                       standard_url:   response[:data][idx][:images][:standard_resolution][:url], 
-                      caption:        response[:data][idx][:caption][:text])
+                      caption:        response[:data][idx][:caption][:text],
+                      lat:                response[:data][idx][:location][:latitude],
+                      lng:              response[:data][idx][:location][:longitude])
       end
     end
     return true

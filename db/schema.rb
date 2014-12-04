@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20141203173105) do
     t.string   "thumbnail_url"
     t.string   "standard_url"
     t.string   "caption"
+    t.float    "lat"
+    t.float    "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
