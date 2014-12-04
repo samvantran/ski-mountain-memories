@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20141204210215) do
 
+
   create_table "mountains", force: true do |t|
     t.string   "name"
     t.float    "lat"
@@ -45,8 +46,8 @@ ActiveRecord::Schema.define(version: 20141204210215) do
 
   create_table "visuals", force: true do |t|
     t.integer  "trip_id"
-    t.boolean  "photo"
-    t.datetime "time_taken"
+    t.string   "type"
+    t.integer  "time_taken"
     t.string   "thumbnail_url"
     t.string   "standard_url"
     t.string   "caption"
