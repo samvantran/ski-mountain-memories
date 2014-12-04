@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
         User.create(user_name: response.user.username, ig_id: response.user.id, ig_profile_url: response.user.profile_picture)
       end
 
-      # hashtag = "snowymountain42"
-      # Instagram.create_subscription("tag", "https://ski-mountain-memories.herokuapp.com/sessions/sub_callback", object_id: hashtag)
+      hashtag = "snowymountain42"
+      Instagram.create_subscription("tag", "https://ski-mountain-memories.herokuapp.com/sessions/sub_callback", object_id: hashtag)
       
       redirect_to instagram_index_path, :notice => "You have added snowymountain42"
     else
@@ -37,12 +37,12 @@ class SessionsController < ApplicationController
       response = Instagram.tag_recent_media(current_tag)
       response.each_with_index do |media, idx|
 
-        # Media.create( trip_id:        1, # need to add trip id
-        #               photo:          response[:data][idx][:type],
-        #               time_taken:     response[:data][idx][:created_time], 
-        #               thumbnail_url:  response[:data][idx][:images][:thumbnail][:url], 
-        #               standard_url:   response[:data][idx][:images][:standard_resolution][:url], 
-        #               caption:        response[:data][idx][:caption][:text])
+        Media.create( trip_id:        1, # need to add trip id
+                      photo:          response[:data][idx][:type],
+                      time_taken:     response[:data][idx][:created_time], 
+                      thumbnail_url:  response[:data][idx][:images][:thumbnail][:url], 
+                      standard_url:   response[:data][idx][:images][:standard_resolution][:url], 
+                      caption:        response[:data][idx][:caption][:text])
       end
     end
     return true
