@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203204023) do
+ActiveRecord::Schema.define(version: 20141203222631) do
 
   create_table "media", force: true do |t|
     t.integer  "trip_id"
@@ -34,12 +34,16 @@ ActiveRecord::Schema.define(version: 20141203204023) do
   end
 
   create_table "trips", force: true do |t|
-    t.integer  "user_id"
     t.string   "name"
     t.string   "hashtag"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "mountain_id"
+  end
+
+  create_table "trips_users", id: false, force: true do |t|
+    t.integer "trip_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|

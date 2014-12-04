@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :trips
+  has_and_belongs_to_many :trips
   has_many :media, through: :trips
 end

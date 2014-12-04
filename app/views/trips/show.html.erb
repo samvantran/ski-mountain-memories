@@ -1,8 +1,12 @@
-<head>
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-</head>
-<body>
-  <h1>Mountain Map</h1>
-  <div id="map-canvas"></div>
-</body>
+
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+
+  <div><h1>Mountain Map</h1></div>
+  <%= content_tag "div", id: "map-canvas", data: {lat: @lat, lng: @lng, zoom: @zoom_level} do %>
+
+  <% end %>
+
+
+
 
