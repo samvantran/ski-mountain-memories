@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
       # response = Instagram.tag_recent_media(current_tag)
       # need to add trip id
 
-      response = Instagram.tag_recent_media("snowymountain42")
+      response = Instagram.tag_recent_media(current_tag)
       response.each do |visual|
         Visual.create(trip_id: 1, media_type: visual[:type], time_taken: visual[:created_time], thumbnail_url: visual[:images][:thumbnail][:url], standard_url: visual[:images][:standard_resolution][:url], caption: visual[:caption][:text], lat: visual[:location][:latitude], lng: visual[:location][:longitude])
       end
