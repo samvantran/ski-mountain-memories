@@ -33,20 +33,16 @@ class SessionsController < ApplicationController
       render :text => params["hub.challenge"]
     else
       current_tag = params[:_json][0][:object_id]         #the tag that just popped
-      
-      response = Instagram.tag_recent_media(current_tag)
-      puts response
-      response.each_with_index do |media, idx|
 
-        Visual.create( trip_id:        1, # need to add trip id
-                      photo:          response[:data][idx][:type],
-                      time_taken:     response[:data][idx][:created_time], 
-                      thumbnail_url:  response[:data][idx][:images][:thumbnail][:url], 
-                      standard_url:   response[:data][idx][:images][:standard_resolution][:url], 
-                      caption:        response[:data][idx][:caption][:text],
-                      lat:                response[:data][idx][:location][:latitude],
-                      lng:              response[:data][idx][:location][:longitude])
+      # response = Instagram.tag_recent_media(current_tag)
+      # need to add trip id
+
+      response = Instagram.tag_recent_media("snowymountain42")
+      response.each do |visual|
+        Visual.create(trip_id: 1, media_type: visual[:type], time_taken: visual[:created_time], thumbnail_url: visual[:images][:thumbnail][:url], standard_url: visual[:images][:standard_resolution][:url], caption: visual[:caption][:text], lat: visual[:location][:latitude], lng: visual[:location][:longitude])
       end
+
+     
     end
     return true
   end

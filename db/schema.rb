@@ -13,19 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20141203173105) do
 
-  create_table "media", force: true do |t|
-    t.integer  "trip_id"
-    t.boolean  "photo"
-    t.datetime "time_taken"
-    t.string   "thumbnail_url"
-    t.string   "standard_url"
-    t.string   "caption"
-    t.float    "lat"
-    t.float    "lng"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "trips", force: true do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -41,6 +28,19 @@ ActiveRecord::Schema.define(version: 20141203173105) do
     t.string   "user_name"
     t.integer  "ig_id"
     t.string   "ig_profile_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "visuals", force: true do |t|
+    t.integer  "trip_id"
+    t.string   "type"
+    t.integer  "time_taken"
+    t.string   "thumbnail_url"
+    t.string   "standard_url"
+    t.string   "caption"
+    t.float    "lat"
+    t.float    "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
