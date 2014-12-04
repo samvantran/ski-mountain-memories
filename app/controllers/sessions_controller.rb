@@ -32,9 +32,10 @@ class SessionsController < ApplicationController
     if params["hub.challenge"]
       render :text => params["hub.challenge"]
     else
-      current_tag = params[:_json][0][:object_id] #the tag that just popped
+      current_tag = params[:_json][0][:object_id]         #the tag that just popped
+      
       response = Instagram.tag_recent_media(current_tag)
-      Media.create( trip_id:        XX, 
+      Media.create( trip_id:        # need to add trip id, 
                     photo:          response[:data][photo_i][:type],
                     time_taken:     response[:data][photo_i][:created_time], 
                     thumbnail_url:  response[:data][photo_i][:images][:thumbnail][:url], 
@@ -42,6 +43,5 @@ class SessionsController < ApplicationController
                     caption:        response[:data][photo_i][:caption][:text])
     end
   end
-
-end#class end
+end   #class end
 
