@@ -15,5 +15,5 @@
 //= require bootstrap
 //= require trips.js
 //= require snowfall.js
-//= require googlemaps.js
+
 

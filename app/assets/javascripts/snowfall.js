@@ -2,7 +2,7 @@
 // // # All this logic will automatically be available in application.js.
 // // # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready( function(){
+ function snow(){
   //canvas init
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
@@ -88,4 +88,3 @@ $(document).ready( function(){
   //animation loop
   setInterval(draw, 25);
   }
-);
