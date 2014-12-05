@@ -8,7 +8,7 @@
 <%= content_tag "div", id: "map-canvas", data: {lat: @lat, lng: @lng, zoom: @zoom_level, visuals: @visuals,  trip_id: @trip.id} do %>
 
 <% end %>
-
+<canvas id="canvas"></canvas>
 <%= link_to "Log Out", sessions_destroy_path %>
 
 
