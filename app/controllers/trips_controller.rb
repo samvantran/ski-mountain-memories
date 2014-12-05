@@ -22,8 +22,10 @@ class TripsController < ApplicationController
 
   def create
     trip = Trip.new(mountain_id: params[:trip][:mountain_id], hashtag: params[:trip][:hashtag])
-    trip.save
-
+    if trip.save
+    Instagram.create_subscription("tag", "https://ski-mountain-memories.herokuapp.com/sessions/sub_callback", object_id: trip.hashtag)
+    end
+    
     redirect_to trip_path(trip.id)
   end
 
