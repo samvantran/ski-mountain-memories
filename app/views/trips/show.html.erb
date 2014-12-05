@@ -1,11 +1,13 @@
 
-  <script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
 
 
-  <div><h1>Mountain Map</h1></div>
-  <%= content_tag "div", id: "map-canvas", data: {lat: @lat, lng: @lng, zoom: @zoom_level, visuals: @visuals} do %>
+<div><h1>Mountain Map</h1></div>
+<%= content_tag "div", id: "map-canvas", data: {lat: @lat, lng: @lng, zoom: @zoom_level, visuals: @visuals} do %>
 
-  <% end %>
+<% end %>
+
+<h2><a href="/sessions/destroy">Log Out</a></h2>
 
 
 

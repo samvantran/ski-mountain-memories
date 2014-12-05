@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       # hashtag = "snowymountain42"
       # Instagram.create_subscription("tag", "https://ski-mountain-memories.herokuapp.com/sessions/sub_callback", object_id: hashtag)
       
-      redirect_to instagram_index_path, :notice => "You have added snowymountain42"
+      redirect_to new_trip_path, :notice => "You have added snowymountain42"
     else
       redirect_to new_instagram_path, :notice => "Sorry, you were not authenticated. Please try again."
     end

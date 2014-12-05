@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204210215) do
-
+ActiveRecord::Schema.define(version: 20141203222631) do
 
   create_table "mountains", force: true do |t|
     t.string   "name"
@@ -46,7 +45,7 @@ ActiveRecord::Schema.define(version: 20141204210215) do
 
   create_table "visuals", force: true do |t|
     t.integer  "trip_id"
-    t.string   "type"
+    t.string   "media_type"
     t.integer  "time_taken"
     t.string   "thumbnail_url"
     t.string   "standard_url"
