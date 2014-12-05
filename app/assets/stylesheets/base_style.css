@@ -1,11 +1,18 @@
-body {
+html,body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
   text-align: center;
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 
 #map-canvas {
-  width: 1000px;
-  height: 800px; 
-  margin-right: auto;
-  margin-left: auto;
+/*  display: block;*/
+  position: fixed;
+  height: 100%;
+  width: 100%;
+/*  background: red;*/
+
+/*  margin-right: auto;
+  margin-left: auto;*/
 }
