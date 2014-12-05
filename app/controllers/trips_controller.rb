@@ -27,4 +27,10 @@ class TripsController < ApplicationController
     redirect_to trip_path(trip.id)
   end
 
+  def addvisuals
+    @trip=Trip.find(params[:trip_id])
+    @visuals=@trip.visuals.all.select {|visual| true}
+    render template: "trips/addvisuals.js.erb"
+  end
+
 end

@@ -4,39 +4,51 @@
 
 $(function() {
   function initialize() {
-          var mapCanvas = document.getElementById('map-canvas');
-          var mapOptions = {
-            center: new google.maps.LatLng(39.473984, -106.084066),
-            zoom: 16  ,
-            mapTypeId: google.maps.MapTypeId.HYBRID
-          };
-          var map = new google.maps.Map(mapCanvas, mapOptions);
+    // var mapCanvas = document.getElementById('map-canvas');
+    // var lat = document.getElementById('map-canvas').getAttribute('data-lat'); 
+    // var lng = document.getElementById('map-canvas').getAttribute('data-lng');
+    // var zoom_level = document.getElementById('map-canvas').getAttribute('data-zoom');
+    // var visuals = document.getElementById('map-canvas').getAttribute('data-visuals');
+    
+    var mapCanvas = document.getElementById('map-canvas');
+    var lat = $('#map-canvas').data('lat'); 
+    var lng = $('#map-canvas').data('lng');
+    var zoom_level = $('#map-canvas').data('zoom');
+    var visuals = $('#map-canvas').data('visuals');
 
-          function addMarker(feature) {
-              var marker = new google.maps.Marker({
-                position: feature.position,
-                icon: 'http://blog.breckenridge.com/wp-content/uploads/2013/01/BRK4360_Liam_Doran-300x200.jpg',
-                map: map
-              });
-          };
+    var mapOptions = {
+      center: new google.maps.LatLng(lat, lng),
+      zoom: zoom_level,
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    };
 
-          var features = [
-              {
-                position: new google.maps.LatLng(39.475355, -106.085634),
-                type: 'info'
-              }, {
-                position: new google.maps.LatLng(39.473947, -106.086621),
-                type: 'info'
-              }, {
-                position: new google.maps.LatLng(39.470746, -106.083668),
-                type: 'info'
-              },
-          ];
+    map = new google.maps.Map(mapCanvas, mapOptions);
 
-          for (var i = 0, feature; feature = features[i]; i++) {
-              addMarker(feature);
-          };
-        }
+  }
 
   google.maps.event.addDomListener(window, 'load', initialize);  
-})
+});
+
+function addMarker(visual) {
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(visual.lat, visual.lng),
+    icon: visual.thumbnail_url,
+    map: map
+  });
+};
+
+
+
+    // for (var i = 0, visual; visual = visuals[i]; i++) {
+    //   addMarker(visual);
+    // };
+
+//         for (i = 0; i < visuals.length; i++) { 
+//       addMarker(visuals[i]);
+
+//       // new google.maps.Marker({
+//       //   position: new google.maps.LatLng(visuals[i].lat, visuals[i].lng),
+//       //   icon: visuals[i].thumbnail_url,
+//       //   map: map
+//       // })
+// }

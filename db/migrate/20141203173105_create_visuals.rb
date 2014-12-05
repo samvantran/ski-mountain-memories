@@ -10,7 +10,6 @@ class CreateVisuals < ActiveRecord::Migration
       t.string :caption
       t.float :lat
       t.float :lng
-
       t.timestamps
     end
   end
