@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   
   get 'users/show'
 
+  get 'users/index'
+
   resources :trips, except: [:destroy]
+
+  get '/earth' => 'trips#earth'
 
   resources :instagram, only: [:index, :new]
   resources :sessions, only: [:new, :create, :destroy]
