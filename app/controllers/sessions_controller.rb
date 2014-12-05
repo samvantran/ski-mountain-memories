@@ -14,10 +14,7 @@ class SessionsController < ApplicationController
                                                             ig_id: response.user.id, 
                                                             ig_profile_url: response.user.profile_picture)
 
-      # hashtag = "snowymountain42"
-      # Instagram.create_subscription("tag", "https://ski-mountain-memories.herokuapp.com/sessions/sub_callback", object_id: hashtag)
-      
-      redirect_to instagram_index_path, :notice => "You have added snowymountain42"
+      redirect_to instagram_index_path, :notice => "You have successfully logged in."
     else
       redirect_to new_instagram_path, :notice => "Sorry, you were not authenticated. Please try again."
     end
@@ -32,15 +29,16 @@ class SessionsController < ApplicationController
     if params["hub.challenge"]
       render :text => params["hub.challenge"]
     else
-      current_tag = params[:_json][0][:object_id]         #the tag that just popped
-
-      # response = Instagram.tag_recent_media(current_tag)
-      # need to add trip id
+      current_tag = params[:_json][0][:object_id]         # the tag that just popped
+      
+      trip_id = Trip.find_by(hashtag: current_tag).id
+      # trip_id = trip.id if trip 
+      # discuss with team
 
       response = Instagram.tag_recent_media(current_tag)
       response.each do |visual|
         Visual.create(  
-          trip_id:        1, 
+          trip_id:        trip_id, 
           media_type:     visual[:type], 
           time_taken:     visual[:created_time], 
           thumbnail_url:  visual[:images][:thumbnail][:url], 
@@ -50,7 +48,7 @@ class SessionsController < ApplicationController
           lng:            visual[:location][:longitude])
       end     
     end
-    return true
+    return true     # is this necessary?
   end
 
 end   #class end
