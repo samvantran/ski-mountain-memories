@@ -32,9 +32,8 @@ class SessionsController < ApplicationController
     else
       current_tag = params[:_json][0][:object_id]         # the tag that just popped
       
-      trip_id = Trip.find_by(hashtag: current_tag).id
-      # trip_id = trip.id if trip 
-      # discuss with team
+      trip_id = Trip.find_by(hashtag: current_tag)
+      trip_id = trip.id if trip 
 
       response = Instagram.tag_recent_media(current_tag)
       response.each do |visual|
