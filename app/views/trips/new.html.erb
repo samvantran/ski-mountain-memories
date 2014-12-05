@@ -1,2 +1,22 @@
-<h1>Trips#new</h1>
-<p>Find me in app/views/trips/new.html.erb</p>
+<h1><%= notice %></h1>
+
+<%= form_for @trip do |f| %>
+
+  <h2>What mountain are you going to?</h2>
+  <%= f.select :mountain_id, Mountain.all.collect {|m| [m.name, m.id]}, {prompt: 'select mountain'} %>
+
+  <h2>Who are you going with?</h2>
+  <%= f.fields_for :users do |users_fields| %>
+    <p>
+    <%= users_fields.text_field :user_name, :value => 'add your friend\'s instagram name'%>
+    </p>
+  <% end %>
+
+  <h2>What's your trip hashtag?</h2>
+  <%= f.text_field :hashtag %><br>
+  <br>
+  <%= f.submit %>
+
+<% end %>
+
+<h2><a href="/sessions/destroy">Log Out</a></h2>

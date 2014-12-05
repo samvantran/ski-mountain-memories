@@ -11,17 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203173105) do
+ActiveRecord::Schema.define(version: 20141203222631) do
 
-  create_table "trips", force: true do |t|
-    t.integer  "user_id"
+  create_table "mountains", force: true do |t|
     t.string   "name"
     t.float    "lat"
     t.float    "lng"
-    t.string   "hashtag"
     t.integer  "zoom_level"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "trips", force: true do |t|
+    t.string   "name"
+    t.string   "hashtag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "mountain_id"
+  end
+
+  create_table "trips_users", id: false, force: true do |t|
+    t.integer "trip_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|
@@ -34,7 +45,7 @@ ActiveRecord::Schema.define(version: 20141203173105) do
 
   create_table "visuals", force: true do |t|
     t.integer  "trip_id"
-    t.string   "type"
+    t.string   "media_type"
     t.integer  "time_taken"
     t.string   "thumbnail_url"
     t.string   "standard_url"
