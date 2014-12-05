@@ -1,5 +1,4 @@
 
-<script src="https://maps.googleapis.com/maps/api/js"></script>
 <script>     
   setInterval(function(){$.get( "/addvisuals", {trip_id: $('#map-canvas').data('trip-id')},"script");}, 2000);
 </script>
@@ -10,7 +9,8 @@
 
 <% end %>
 
-<h2><a href="/sessions/destroy">Log Out</a></h2>
+<%= link_to "Log Out", sessions_destroy_path %>
+
 
 
 
