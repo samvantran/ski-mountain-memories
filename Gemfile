@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 gem 'unicorn'
 
+#Use dragonfly for creating thumbnails
+gem 'dragonfly', '~> 1.0.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
