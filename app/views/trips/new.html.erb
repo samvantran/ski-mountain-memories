@@ -1,3 +1,4 @@
+
 <h1><%= notice %></h1>
 
 <%= form_for @trip do |f| %>
@@ -6,14 +7,14 @@
   <%= f.select :mountain_id, Mountain.all.collect {|m| [m.name, m.id]}, {prompt: 'select mountain'} %>
 
   <h2>What's your trip hashtag?</h2>
-  <%= f.text_field :hashtag, value: @trip.gen_hashtag %><br>
-  <%= f.button "get another tag", id: "gen_hash_tag" %>
-  <%= button_to "Generate Code", add_code_band_path(@band), :remote => true %>
+  <%= f.text_field :hashtag, value: Trip.genhashtag, id: "genhashtag" %><br>
+
 
   <br>
   <%= f.submit %>
 
 <% end %>
+  <%= button_to "Get Another Hashtag", "/genhashtag", method: "get", :remote => true %>
 
 <h2><a href="/sessions/destroy">Log Out</a></h2>
 

@@ -26,38 +26,22 @@ $(function() {
 
   }
 
-  google.maps.event.addDomListener(window, 'load', initialize);  
-  oms = new OverlappingMarkerSpiderfier(map); //global
+   google.maps.event.addDomListener(window, 'load', initialize); 
 
-  var iw = new gm.InfoWindow();
-  oms.addListener('click', function(marker, event) {
-    iw.setContent(marker.desc);
-    iw.open(map, marker);
-  });
 
-  oms.addListener('spiderfy', function(markers) {
-  iw.close();
-});
 
 });
 
 function addMarker(visual) {
-  for (var i = 0; i < window.mapData.length; i ++) {
-  var datum = window.mapData[i];
-  var loc = new gm.LatLng(datum.lat, datum.lon);
-
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(visual.lat, visual.lng),
-    title: datum.h,
     icon: visual.thumbnail_url,
     map: map
   });
 
-  marker.desc = datum.d;
-  oms.addMarker(marker);  // <-- here
 }
 
-};
+
 
 
 

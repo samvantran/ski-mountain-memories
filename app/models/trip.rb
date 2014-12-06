@@ -5,7 +5,7 @@ class Trip < ActiveRecord::Base
   has_many :visuals
   accepts_nested_attributes_for :users
 
-  def gen_hashtag
+  def self.genhashtag
     verbs=%w(sleeping crying laughing jumping dancing singing feasting sitting coding)
     fruits=%w(orange banana pineapple apple kiwi grape lime mango)
     adjectives=%w(passionate hot friendly lazy loving crazy smart tall fat kind boring)
