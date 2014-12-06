@@ -31,12 +31,12 @@ class SessionsController < ApplicationController
       render :text => params["hub.challenge"]
     else
       current_tag = params[:_json][0][:object_id]         # the tag that just popped
-      
+      puts "$$$$$$$$$$$CURRENT TAG: #{current_tag}"
       trip_id = Trip.find_by(hashtag: current_tag).id
       # trip_id = trip.id if trip 
       # discuss with team
       
-puts "$$$$$$$$$$$CURRENT TAG: #{current_tag}"
+
 
       response = Instagram.tag_recent_media(current_tag)
       response.each do |visual|
