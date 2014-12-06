@@ -5,9 +5,9 @@ class CreateVisuals < ActiveRecord::Migration
       t.integer :trip_id
       t.string :media_type
       t.integer :time_taken
-      t.string :thumbnail_url
-      t.string :standard_url
-      t.string :caption
+      t.text :thumbnail_url
+      t.text :standard_url
+      t.text :caption
       t.float :lat
       t.float :lng
       t.timestamps
