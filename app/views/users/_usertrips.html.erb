@@ -1,5 +1,5 @@
-<li> <%= link_to question.title.html_safe, question.url %> </li>
+  
 
-<%= usertrip.hashtag %>
-<%= usertrip.created_at %>
-<%= trip_path(Trip.find(usertrip.id)) %>
+<li>Hashtag:<%= usertrips.hashtag %></li>
+<li>Date: <%= usertrips.created_at %></li>
+<li>Shareable Link:<%= trip_url(Trip.find(usertrips.id)) %></li>

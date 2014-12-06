@@ -1,6 +1,7 @@
 
 <h1><%= notice %></h1>
-<h1><%= session[:user_id] %></h1>
+<h1>Welcome <%= current_user.user_name %></h1>
+<h2><%= link_to "My Trips", current_user %><h2>
 <%= form_for @trip do |f| %>
 
   <h2>What mountain are you going to?</h2>
