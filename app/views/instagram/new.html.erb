@@ -1,6 +1,32 @@
 <%= notice %>
 
-<h1><a href=<%= instagram_oauth_connect_path %>>Sign into Instagram</a></h1>
+<div class="main-navbar">
+  <nav id="navbar" class="navbar" role="navigation">
+    <div class="container-fluid">
+      <div class="dropdown">
+        <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+        <button class="navbar-button" type="button" data-toggle="collapse" data-target=".main-navbar-js-dropdown-menu">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="glyphicon glyphicon-arrow-left"></span>
+        </button>
+        </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li><a href="#">About</a></li>
+            <hr>
+            <li><a href="#">Team</a></li>
+            <hr>
+            <li><a href=<%= instagram_oauth_connect_path %>>Sign into Instagram</a></li>
+          </ul>
+          
+          <!-- for JavaScript menu! -->
+          <!-- $('button.navbar-button').on('click', function() {       
+            $('ul.dropdown-menu').append('<li><a href="#">More!</a></li>');
+          }) -->
+          
+        </div>
+    </div>
+  </nav>
+</div>
 
 <canvas id="canvas"></canvas>
 <script>snow()</script>

@@ -14,3 +14,32 @@ body {
 canvas {
   display: block;
 }
+
+.navbar-button {
+  z-index: 100;
+  position: fixed;
+  left: 95%;
+  margin-top: -50px;
+  height: 50px;
+  width: 50px;
+  opacity: 0.65;
+  background-color: #000;
+}
+
+ul.dropdown-menu {
+  position: absolute;
+  left: 83%;
+  z-index: 95;
+  margin-top: 0;
+  background-color: #000;
+}
+
+ul.dropdown-menu li a {
+  color: #abc;
+  font-size: 1.2em;
+}
+
+.glyphicon-arrow-left {
+  transform: scale(2);
+  color: #bbb;
+}
