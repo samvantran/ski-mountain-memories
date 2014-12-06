@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
   root 'instagram#new'
-  
-  get 'users/show'
 
+  resources :users, only: [:show]
   resources :trips, except: [:destroy]
 
   resources :instagram, only: [:index, :new]

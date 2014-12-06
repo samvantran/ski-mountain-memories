@@ -10,14 +10,13 @@ class SessionsController < ApplicationController
     session[:access_token] = response.access_token
 
     if session[:access_token]
-      User.find_by(ig_id: response.user.id) || User.create( user_name: response.user.username, 
-                                                            ig_id: response.user.id, 
-                                                            ig_profile_url: response.user.profile_picture)
+      user=User.find_by(ig_id: response.user.id) || User.create( user_name: response.user.username, ig_id: response.user.id, ig_profile_url: response.user.profile_picture)
 
+      session[:user_id]=user.id
       redirect_to new_trip_path
 
     else
-      redirect_to new_instagram_path, :notice => "Sorry, you were not authenticated. Please try again."
+      redirect_to root_path, :notice => "Sorry, you were not authenticated. Please try again."
     end
   end
 
@@ -31,10 +30,17 @@ class SessionsController < ApplicationController
       render :text => params["hub.challenge"]
     else
       current_tag = params[:_json][0][:object_id]         # the tag that just popped
-      
+      puts "$$$$$$$$$$$CURRENT TAG: #{current_tag}"
       trip_id = Trip.find_by(hashtag: current_tag).id
       # trip_id = trip.id if trip 
       # discuss with team
+
+      #maybe we need to be able to handle multiple updates ?
+# {"_json"=>[{"changed_aspect"=>"media", "object"=>"tag", "object_id"=>"dd", "time"=>1417888390, "subscription_id"=>15013339, "data"=>{}}], "session"=>{"_json"=>[{"changed_aspect"=>"media", "object"=>"tag", "object_id"=>"dd", "time"=>1417888390, "subscription_id"=>15013339, "data"=>{}}]}}
+
+# {"_json"=>[{"changed_aspect"=>"media", "object"=>"tag", "object_id"=>"23", "time"=>1417888390, "subscription_id"=>15012690, "data"=>{}}], "session"=>{"_json"=>[{"changed_aspect"=>"media", "object"=>"tag", "object_id"=>"23", "time"=>1417888390, "subscription_id"=>15012690, "data"=>{}}]}}
+
+# {"_json"=>[{"changed_aspect"=>"media", "object"=>"tag", "object_id"=>"potatos", "time"=>1417888840, "subscription_id"=>15026388, "data"=>{}}], "session"=>{"_json"=>[{"changed_aspect"=>"media", "object"=>"tag", "object_id"=>"potatos", "time"=>1417888840, "subscription_id"=>15026388, "data"=>{}}]}}
 
       response = Instagram.tag_recent_media(current_tag)
       response.each do |visual|
