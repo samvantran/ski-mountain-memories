@@ -35,4 +35,8 @@ class TripsController < ApplicationController
     render template: "trips/addvisuals.js.erb"
   end
 
+  def gen_hashtag
+    render gen_hashtag.js.erb
+  end
+
 end

@@ -5,18 +5,20 @@
   <h2>What mountain are you going to?</h2>
   <%= f.select :mountain_id, Mountain.all.collect {|m| [m.name, m.id]}, {prompt: 'select mountain'} %>
 
-  <h2>Who are you going with?</h2>
-  <%= f.fields_for :users do |users_fields| %>
-    <p>
-    <%= users_fields.text_field :user_name, :value => 'add your friend\'s instagram name'%>
-    </p>
-  <% end %>
-
   <h2>What's your trip hashtag?</h2>
-  <%= f.text_field :hashtag %><br>
+  <%= f.text_field :hashtag, value: @trip.gen_hashtag %><br>
+  <%= f.button "get another tag", id: "gen_hash_tag" %>
+  <%= button_to "Generate Code", add_code_band_path(@band), :remote => true %>
+
   <br>
   <%= f.submit %>
 
 <% end %>
 
 <h2><a href="/sessions/destroy">Log Out</a></h2>
+
+<!-- 1. alert when trip was not created
+2. placeholder should be unique hashtag
+@trip.gen_hashtag
+3. make button to get new one
+ -->

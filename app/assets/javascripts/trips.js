@@ -22,34 +22,42 @@ $(function() {
       mapTypeId: google.maps.MapTypeId.HYBRID
     };
 
-    map = new google.maps.Map(mapCanvas, mapOptions);
+    map = new google.maps.Map(mapCanvas, mapOptions); //global
 
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);  
-  
+  oms = new OverlappingMarkerSpiderfier(map); //global
+
+  var iw = new gm.InfoWindow();
+  oms.addListener('click', function(marker, event) {
+    iw.setContent(marker.desc);
+    iw.open(map, marker);
+  });
+
+  oms.addListener('spiderfy', function(markers) {
+  iw.close();
+});
+
 });
 
 function addMarker(visual) {
+  for (var i = 0; i < window.mapData.length; i ++) {
+  var datum = window.mapData[i];
+  var loc = new gm.LatLng(datum.lat, datum.lon);
+
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(visual.lat, visual.lng),
+    title: datum.h,
     icon: visual.thumbnail_url,
     map: map
   });
+
+  marker.desc = datum.d;
+  oms.addMarker(marker);  // <-- here
+}
+
 };
 
 
 
-    // for (var i = 0, visual; visual = visuals[i]; i++) {
-    //   addMarker(visual);
-    // };
-
-//         for (i = 0; i < visuals.length; i++) { 
-//       addMarker(visuals[i]);
-
-//       // new google.maps.Marker({
-//       //   position: new google.maps.LatLng(visuals[i].lat, visuals[i].lng),
-//       //   icon: visuals[i].thumbnail_url,
-//       //   map: map
-//       // })
-// }
