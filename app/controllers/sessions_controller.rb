@@ -30,10 +30,12 @@ class SessionsController < ApplicationController
     if params["hub.challenge"]
       render :text => params["hub.challenge"]
     else
+      #currently not accepting payloads with more than 1 update, but every recent_media query will capture it regardless of the contents of the update. 
       current_tag = params[:_json][0][:object_id]         # the tag that just popped
       puts "$$$$$$$$$$$CURRENT TAG: #{current_tag}$$$$$$$$$$$$"
+
       trip_id = Trip.find_by(hashtag: current_tag).id
-      if trip_id
+
         response = Instagram.tag_recent_media(current_tag)
         response.each do |visual|
           Visual.create(  
@@ -46,7 +48,7 @@ class SessionsController < ApplicationController
             lat:            visual[:location][:latitude], 
             lng:            visual[:location][:longitude])
           end
-      end     
+    
     end
     return true     # is this necessary?
   end
