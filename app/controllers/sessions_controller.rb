@@ -39,7 +39,7 @@ class SessionsController < ApplicationController
         response = Instagram.tag_recent_media(current_tag)
         puts response
         response.each do |visual|
-              if visual[:location][:latitude] #does location data exist?
+              if visual[:location] #does location data exist?
                 Visual.create(  
                   trip_id:        trip_id, 
                   media_type:     visual[:type], 

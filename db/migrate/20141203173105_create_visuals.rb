@@ -1,7 +1,6 @@
 class CreateVisuals < ActiveRecord::Migration
   def change
     create_table :visuals do |t|
-
       t.integer :trip_id
       t.string :media_type
       t.integer :time_taken
