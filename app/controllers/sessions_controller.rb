@@ -37,6 +37,7 @@ class SessionsController < ApplicationController
       trip_id = Trip.find_by(hashtag: current_tag).id
 
         response = Instagram.tag_recent_media(current_tag)
+        puts response
         response.each do |visual|
           Visual.create(  
             trip_id:        trip_id, 
