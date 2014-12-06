@@ -3,12 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  /*You can use any kind of background here.*/
   background: url("bg-mountain.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 canvas {
@@ -26,6 +25,20 @@ canvas {
   background-color: #000;
 }
 
+@media (max-width: 769px) {
+   .navbar-button {
+    left: 93%;
+    margin-top: -8%;
+  }
+}
+@media (max-width: 361px) {
+  .navbar-button {
+    left: 87%;
+    margin-top: -15%;
+    height: 2.5em;
+    width: 2.5em;
+  }
+}
 ul.dropdown-menu {
   position: absolute;
   left: 83%;
@@ -39,7 +52,7 @@ ul.dropdown-menu li a {
   font-size: 1.2em;
 }
 
-.glyphicon-arrow-left {
-  transform: scale(2);
-  color: #bbb;
+.navbar-button {
+  background: url("snowflake-small.png");
+  background-size: cover;
 }
