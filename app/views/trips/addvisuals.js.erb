@@ -1,0 +1,6 @@
+// $('html').html("<h1>HEYO</h1>")
+var visuals=<%= raw json_escape(@visuals.to_json)%>;
+
+       for (i = 0; i < visuals.length; i++) { 
+      addMarker(visuals[i]);
+}

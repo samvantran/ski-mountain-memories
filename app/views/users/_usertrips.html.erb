@@ -1,0 +1,5 @@
+<li> <%= link_to question.title.html_safe, question.url %> </li>
+
+<%= usertrip.hashtag %>
+<%= usertrip.created_at %>
+<%= trip_path(Trip.find(usertrip.id)) %>

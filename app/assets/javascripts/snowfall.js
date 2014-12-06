@@ -1,11 +1,13 @@
-// # Place all the behaviors and hooks related to the matching controller here.
-// # All this logic will automatically be available in application.js.
-// # You can use CoffeeScript in this file: http://coffeescript.org/
+// // # Place all the behaviors and hooks related to the matching controller here.
+// // # All this logic will automatically be available in application.js.
+// // # You can use CoffeeScript in this file: http://coffeescript.org/
 
-// $(document).ready( function(){
-//   //canvas init
-//   var canvas = document.getElementById("canvas");
-//   var ctx = canvas.getContext("2d");
+
+ // function snow(){
+ //  //canvas init
+ //  var canvas = document.getElementById("canvas");
+ //  var ctx = canvas.getContext("2d");
+
   
 //   //canvas dimensions
 //   var W = window.innerWidth;
@@ -85,7 +87,13 @@
 //     }
 //   }
   
+<<<<<<< HEAD:app/assets/javascripts/instagram.js
 //   //animation loop
 //   setInterval(draw, 33);
 //   }
 // )
+=======
+  //animation loop
+  setInterval(draw, 25);
+  }
+>>>>>>> master:app/assets/javascripts/snowfall.js

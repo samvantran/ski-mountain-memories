@@ -3,4 +3,6 @@ class Visual < ActiveRecord::Base
   belongs_to :trip
   dragonfly_accessor :image
 
+
 end
+
