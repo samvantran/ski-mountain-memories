@@ -31,24 +31,21 @@ class SessionsController < ApplicationController
       render :text => params["hub.challenge"]
     else
       current_tag = params[:_json][0][:object_id]         # the tag that just popped
-      puts "$$$$$$$$$$$CURRENT TAG: #{current_tag}"
+      puts "$$$$$$$$$$$CURRENT TAG: #{current_tag}$$$$$$$$$$$$"
       trip_id = Trip.find_by(hashtag: current_tag).id
-      # trip_id = trip.id if trip 
-      # discuss with team
-      
-
-
-      response = Instagram.tag_recent_media(current_tag)
-      response.each do |visual|
-        Visual.create(  
-          trip_id:        trip_id, 
-          media_type:     visual[:type], 
-          time_taken:     visual[:created_time], 
-          thumbnail_url:  visual[:images][:thumbnail][:url], 
-          standard_url:   visual[:images][:standard_resolution][:url], 
-          caption:        visual[:caption][:text], 
-          lat:            visual[:location][:latitude], 
-          lng:            visual[:location][:longitude])
+      if trip_id
+        response = Instagram.tag_recent_media(current_tag)
+        response.each do |visual|
+          Visual.create(  
+            trip_id:        trip_id, 
+            media_type:     visual[:type], 
+            time_taken:     visual[:created_time], 
+            thumbnail_url:  visual[:images][:thumbnail][:url], 
+            standard_url:   visual[:images][:standard_resolution][:url], 
+            caption:        visual[:caption][:text], 
+            lat:            visual[:location][:latitude], 
+            lng:            visual[:location][:longitude])
+          end
       end     
     end
     return true     # is this necessary?
