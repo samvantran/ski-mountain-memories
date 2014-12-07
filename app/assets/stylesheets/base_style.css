@@ -3,26 +3,34 @@ body {
   vertical-align: middle;*/
   background: url("bg-mountain.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+  font-family: Helvetica, Arial, san-serif;
+  margin: 0;
+  padding: 0;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .navbar-links {
   position: fixed;
+  z-index: 99;
   height: 100%;
-  width: 100%;
+  width: 14%;
   left: 101%;
   top: 0;
   background-color: #111;
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 button.navbar-button {
   z-index: 100;
   position: fixed;
-  left: 95%;
-  margin-top: -50px;
+  left: 96%;
+  margin-top: -4.5%;
   height: 40px;
   width: 40px;
   opacity: 0.65;
@@ -40,16 +48,33 @@ button.navbar-button {
   height: 2px;
 }
 
-.main-links li {
-  list-style-type: none;
+.main-links {
+  padding: 10px;
 }
 
+.main-links li {
+  list-style-type: none;
+  text-align: center;
+  font-size: 1.3em;
+  text-transform: uppercase;
+}
+
+.main-links li a {
+  text-decoration: none;
+}
+
+.main-links hr {
+  margin: 10px -10px;
+  width: 130%;
+}
+/*
 canvas {
   display: block;
-}
+}*/
 
 canvas#canvas {
   position: fixed;
+  z-index: -999;
   top: 0;
   left: 0;
   height: 100%;
@@ -74,8 +99,8 @@ canvas#canvas {
 
 @media (max-width: 361px) {
   .navbar-button {
-    left: 80%;
-    margin-top: -15%;
+    left: 70%;
+    top: 10%;
     height: 2.5em;
     width: 2.5em;
   }
