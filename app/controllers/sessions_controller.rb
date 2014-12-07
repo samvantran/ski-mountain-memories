@@ -36,25 +36,36 @@ class SessionsController < ApplicationController
 
       trip_id = Trip.find_by(hashtag: current_tag).id
 
-        response = Instagram.tag_recent_media(current_tag)
-        puts response
-        response.each do |visual|
-              if visual[:location] #does location data exist?
-                Visual.create(  
-                  trip_id:        trip_id, 
-                  media_type:     visual[:type], 
-                  time_taken:     visual[:created_time], 
-                  thumbnail_url:  visual[:images][:thumbnail][:url], 
-                  standard_url:   visual[:images][:standard_resolution][:url], 
-                  caption:        visual[:caption][:text], 
-                  lat:            visual[:location][:latitude], 
-                  lng:            visual[:location][:longitude])
-            end
+      response = Instagram.tag_recent_media(current_tag)
+      puts response
+      response.each do |visual|
+        if visual[:location]
+          lat=visual[:location][:latitude]
+          lng=visual[:location][:longitude]
+        else
+          lat=nil
+          lng=nil
+        end
 
-          end
-    
+        if visual[:caption]
+          caption=visual[:caption][:text]
+        else
+          caption=nil
+        end
+
+        Visual.create(  
+        trip_id:        trip_id, 
+        media_type:     visual[:type], 
+        time_taken:     visual[:created_time], 
+        thumbnail_url:  visual[:images][:thumbnail][:url], 
+        standard_url:   visual[:images][:standard_resolution][:url], 
+        caption:        caption, 
+        lat:            lat, 
+        lng:            lng)
+
+        end
     end
-    return true     # is this necessary?
+    return true     
   end
 
 end   #class end
