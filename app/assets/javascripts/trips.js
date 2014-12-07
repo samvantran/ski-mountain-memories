@@ -22,15 +22,22 @@ $(function() {
       mapTypeId: google.maps.MapTypeId.HYBRID
     };
 
-    map = new google.maps.Map(mapCanvas, mapOptions);
+    map = new google.maps.Map(mapCanvas, mapOptions); //global
 
   }
 
+<<<<<<< HEAD
   if( typeof google !== 'undefined' ) {
     google.maps.event.addDomListener(window, 'load', initialize);    
   }
   
   
+=======
+   google.maps.event.addDomListener(window, 'load', initialize); 
+
+
+
+>>>>>>> master
 });
 
 function addMarker(visual) {
@@ -39,20 +46,10 @@ function addMarker(visual) {
     icon: visual.thumbnail_url,
     map: map
   });
-};
+
+}
 
 
 
-    // for (var i = 0, visual; visual = visuals[i]; i++) {
-    //   addMarker(visual);
-    // };
 
-//         for (i = 0; i < visuals.length; i++) { 
-//       addMarker(visuals[i]);
 
-//       // new google.maps.Marker({
-//       //   position: new google.maps.LatLng(visuals[i].lat, visuals[i].lng),
-//       //   icon: visuals[i].thumbnail_url,
-//       //   map: map
-//       // })
-// }
