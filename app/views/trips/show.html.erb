@@ -7,9 +7,8 @@
   setInterval(function(){$.get( "/addvisuals", {trip_id: $('#map-canvas').data('trip-id')},"script");}, 4000);
 </script>
 
+<h1>Mountain Map</h1>
 
-
-<div><h1>Mountain Map</h1></div>
 <%= content_tag "div", id: "map-canvas", data: {lat: @lat, lng: @lng, zoom: @zoom_level, visuals: @visuals,  trip_id: @trip.id} do %>
 
 <% end %>

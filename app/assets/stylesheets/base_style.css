@@ -23,11 +23,14 @@ body {
   position: fixed;
   z-index: 99;
   height: 100%;
-  width: 14%;
+  width: 24%;
   left: 101%;
   top: 0;
   background-color: #111;
-  opacity: 0.75;
+  opacity: 0.70;
+  font-weight: bold;
+  font-family: Helvetica;
+  line-height: 2em;
 }
 
 .navbar-button {
@@ -55,6 +58,7 @@ body {
 .main-links { padding: 10px; }
 .main-links li a { text-decoration: none; }
 .main-links hr { margin: 10px -10px; width: 130%; }
+
 .main-links li {
   list-style-type: none;
   text-align: center;
@@ -62,7 +66,7 @@ body {
   text-transform: uppercase;
 }
 
-canvas#canvas {
+#snowfall-canvas {
   z-index: -1;
   position: absolute;
   top: 0;
@@ -72,16 +76,16 @@ canvas#canvas {
 }
 
 #map-canvas {
-  position: fixed;
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  margin: auto 15px;
+  height: 35em;
 }
 
 /* MEDIA QUERIES FOR RESPONSIVENESS */
 
 @media (max-width: 769px) {
    .navbar-button {
-    left: 90%;
+    left: 93%;
     margin-top: 1%;
   }
 }
@@ -102,4 +106,3 @@ canvas#canvas {
     left: 101%;
   }
 }
-

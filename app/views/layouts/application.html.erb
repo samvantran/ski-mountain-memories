@@ -14,6 +14,8 @@
 
   <div class="container">
 
+
+    <!-- the hamburger nav button -->
     <div class="container">
       <div class="main-navbar">
         <button class="navbar-button" type="button" >
@@ -26,6 +28,7 @@
       </div>
     </div>
 
+    <!-- Links on page -->
     <div class="container">
       <div class="navbar-links">
         <ul class="main-links">
@@ -41,11 +44,11 @@
     <%= yield %>
 
     <!-- I think this might work but needs further testing -->
-         # <% if @links %>
-            <!-- <% @links.each do |link| %> -->
+          <% if @links %>
+            <% @links.each do |link| %>
             <!-- <li><a href="<%= link.address %>" <%= link.css_class if link.class %>><%= link.phrase %></a></li> -->
-            <!-- <% end %> -->
-          # <% end %>
+            <% end %> 
+          <% end %>
   </div>
 
 </body>

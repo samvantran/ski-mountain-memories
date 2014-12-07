@@ -4,15 +4,15 @@ $(function() {
   $('.navbar-button').on('click', function() {
     if( slide === false ) {
       $('.navbar-links').animate({
-        left: "-=15%" }, 500 );
+        left: "-=25%" }, 500 );
       $('.navbar-button').animate({
-        left: "-=15%" }, 500 );
+        left: "-=25%" }, 500 );
       slide = true;
     } else {
       $('.navbar-links').animate({
-        left: "+=15%" }, 500 );
+        left: "+=25%" }, 500 );
       $('.navbar-button').animate({
-        left: "+=15%" }, 500 );
+        left: "+=25%" }, 500 );
       slide = false;
     }
   });
