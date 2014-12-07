@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get 'users/show'
 
   resources :trips, except: [:destroy]
+  resources :instagram, only: [:team, :new]
+  get '/about' => 'instagram#about'
+  get '/team' => 'instagram#team'
 
-  resources :instagram, only: [:index, :new]
   resources :sessions, only: [:new, :create, :destroy]
 
   get 'sessions/sub_callback' => 'sessions#sub_callback'    # for instagram subscriptions

@@ -15,5 +15,6 @@
 //= require bootstrap
 //= require trips.js
 //= require snowfall.js
+//= require jquery-ui
 
 
