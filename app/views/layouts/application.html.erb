@@ -10,7 +10,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
-
 <body>
 
   <div class="container">
@@ -27,7 +26,6 @@
       </div>
     </div>
 
-
     <div class="container">
       <div class="navbar-links">
         <ul class="main-links">
@@ -41,7 +39,15 @@
     </div>
 
     <%= yield %>
+
+    <!-- I think this might work but needs further testing -->
+         # <% if @links %>
+            <!-- <% @links.each do |link| %> -->
+            <!-- <li><a href="<%= link.address %>" <%= link.css_class if link.class %>><%= link.phrase %></a></li> -->
+            <!-- <% end %> -->
+          # <% end %>
   </div>
 
 </body>
 </html>
+
