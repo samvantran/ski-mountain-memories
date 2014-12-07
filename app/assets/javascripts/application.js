@@ -16,4 +16,3 @@
 //= require trips.js
 //= require snowfall.js
 
-
