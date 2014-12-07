@@ -1,11 +1,14 @@
 
-<script src="https://maps.googleapis.com/maps/api/js"></script>
+  <div id="javastuff">
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
 
-<!-- google.maps.event.addDomListener(window, 'load', initialize);  -->
+    <script>     
+      setInterval(function(){$.get( "/addvisuals", {trip_id: $('#map-canvas').data('trip-id')},"script");}, 4000);
+    </script>
+  </div>
 
-<script>     
-  setInterval(function(){$.get( "/addvisuals", {trip_id: $('#map-canvas').data('trip-id')},"script");}, 4000);
-</script>
+  <div><h1>Mountain Map</h1></div>
+  <%= content_tag "div", id: "map-canvas", data: {lat: @lat, lng: @lng, zoom: @zoom_level, visuals: @visuals,  trip_id: @trip.id} do %>
 
 <h1>Mountain Map</h1>
 
@@ -14,6 +17,7 @@
 <% end %>
 
 <%= link_to "Log Out", sessions_destroy_path %>
+
 
 
 

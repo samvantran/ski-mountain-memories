@@ -6,7 +6,6 @@
     //canvas init
     var canvas = document.getElementById("snowfall-canvas");
     var ctx = canvas.getContext("2d");
-
     
     //canvas dimensions
     var W = window.innerWidth;
