@@ -1,22 +1,15 @@
-/*Old formatting of body to make mape full-size on page. will have to reconcile with body tag below*/
-/*html,body {
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
+html, body {
   text-align: center;
-  vertical-align: bottom;
-}
-*/
-
-body {
-  /*text-align: center;
-  vertical-align: middle;*/
+  vertical-align: middle;
   background: url("bg-mountain.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;
           background-size: cover;
   font-family: Helvetica, Arial, san-serif;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 .navbar-links {
@@ -39,7 +32,7 @@ body {
   width: 40px;
   opacity: 0.65;
   background-color: #000;
-  /*background: url("snowflake-small.png");
+/*  background: url("snowflake-small.png");
   background-size: cover;*/
 }
 
@@ -62,6 +55,16 @@ body {
   text-transform: uppercase;
 }
 
+#map-canvas {
+  position: fixed;
+  height: 800px;
+/*  width: 100px;*/
+}
+
+.container#javastuff {
+
+}
+
 canvas#canvas {
   z-index: -1;
   position: absolute;
@@ -71,11 +74,6 @@ canvas#canvas {
   width: 100%;
 }
 
-#map-canvas {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-}
 
 /* MEDIA QUERIES FOR RESPONSIVENESS */
 
