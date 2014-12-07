@@ -18,6 +18,7 @@
 //= require main.js
 
 
+
 // there is a bug in the dropdown.js regarding clicking anywhere on page
 //     if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
 
