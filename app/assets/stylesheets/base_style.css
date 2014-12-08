@@ -65,10 +65,10 @@ html, body {
 .main-links hr { margin: 10px -10px; width: 130%; }
 .main-links li a { text-decoration: none; }
 .main-links li a img {
-  width: 23%;
+  width: 20%;
   border: 1px solid white;
   border-radius: 50%;
-  margin: 0.5em;
+  margin: 0.25em;
 }
 
 #snowfall-canvas {

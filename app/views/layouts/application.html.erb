@@ -33,8 +33,9 @@
         <% if session[:user_id] %>
           <% user = User.find(session[:user_id]) %>
           <li>
-            <p class="hidden-xs"><%= user.user_name %></p>
-            <a href="http://instagram.com/<%= user.user_name %>"><img src="<%= user.ig_profile_url %>"></a>
+            <a href="http://instagram.com/<%= user.user_name %>">
+              <p class="hidden-xs"><%= user.user_name %></p>
+              <img src="<%= user.ig_profile_url %>"></a>
           </li>
           <hr>
           <li><a href="<%= new_trip_path %>">Create a trip</a></li>
@@ -44,7 +45,8 @@
             <li>Current trip</li>
             #<%= @trip.hashtag %>
             <hr>
-             <li class="trip-buddies">Trip buddies</li>
+             <li class="trip-buddies">Trip buddies<br>
+             </li>
             <% end %>
           <hr>
           <li class="logout-link"><a href="<%= sessions_destroy_path %>">Log Out</a></li>
