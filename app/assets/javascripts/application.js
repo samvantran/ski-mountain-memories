@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require oms.min.js
 //= require trips.js
 //= require snowfall.js
 //= require jquery-ui
 //= require navbarslider.js
+
 

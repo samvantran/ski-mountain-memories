@@ -6,12 +6,12 @@ markers = [];
 $(function() {
   
   function initialize() {
+    var mapCanvas = document.getElementById('map-canvas');
     var lat = $('#map-canvas').data('lat'); 
     var lng = $('#map-canvas').data('lng');
     var zoom_level = $('#map-canvas').data('zoom');
     var visuals = $('#map-canvas').data('visuals');
 
-    var mapCanvas = document.getElementById('map-canvas');
     var mapOptions = {
       center: new google.maps.LatLng(lat, lng),
       zoom: zoom_level,
@@ -20,60 +20,48 @@ $(function() {
 
     map = new google.maps.Map(mapCanvas, mapOptions); //global
 
-    function addMarker(visual) {
-      // debugger
-      var image = {
-        url: visual.thumbnail_url,
-        // This marker is 20 pixels wide by 32 pixels tall.
-        size: new google.maps.Size(200, 200),
-        // The origin for this image is 0,0.
-        origin: new google.maps.Point(0,0),
-        // The anchor for this image is the base of the flagpole at 0,32.
-        anchor: new google.maps.Point(0, 80)
-        // radius: new google.maps.Radius(100)
-      };
+    var iw = new google.maps.InfoWindow();
+       //global
+       oms = new OverlappingMarkerSpiderfier(map,
+         {markersWontMove: true, markersWontHide: true});
 
-      var shape = {
-        coords: [1, 1, 1, 20, 18, 20, 18 , 1],
-        type: 'poly'
-      };
-
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(visual.lat, visual.lng),
-        icon: image,
-        map: map,
-        shape: shape,
-        zIndex: visual.id,
-        animation: google.maps.Animation.DROP
-      });
-    };
-
-    for (var i = 0, visual; visual = visuals[i]; i++) {
-      addMarker(visual);
-    };
-
-  }
-
+    oms.addListener('click', function(marker) {
+      iw.setContent(marker.popup);
+      iw.open(map, marker);
+    });
 
   if( typeof google !== 'undefined' ) {
     google.maps.event.addDomListener(window, 'load', initialize);    
   }
   
-});
+}//end of initialize
+});//end of document.ready
 
 function addMarker(visual) {
+  var image = {
+    url: visual.thumbnail_url,
+    size: new google.maps.Size(15, 15),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(0, 0),
+    scaledSize: new google.maps.Size(100, 100)
+  };
+
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(visual.lat, visual.lng),
-    icon: visual.thumbnail_url,
-    map: map
+    icon: image,
+    map: map,
+    animation: google.maps.Animation.DROP,
+    popup: '<img src=' + visual.thumbnail_url + '>'
+
   });
 
   markers.push(marker)
-  var date = new Date(0); 
-  date.setUTCSeconds(visual.time_taken);
-
+  var date = new Date(visual.time_taken); 
   $('#photo-time').html(date)
+  oms.addMarker(marker);
 }
+
+// nm={id: 1, trip_id: 1, thumbnail_url: "http://scontent-b.cdninstagram.com/hphotos-xap1/t51.2885-15/10788021_588576094607319_157669935_s.jpg", lat: 40.704536, lng: -74.014711}
 
 
 
