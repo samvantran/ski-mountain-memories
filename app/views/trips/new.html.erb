@@ -1,7 +1,7 @@
 
 <h1><%= notice %></h1>
 
-<div class="container">
+<div class="container form-container">
   <%= form_for @trip do |f| %>
 
     <h2>What mountain are you going to?</h2>
@@ -12,13 +12,11 @@
 
     <br>
     <%= f.submit %>
-
-    <%= button_to "Get Another Hashtag", "/genhashtag", method: "get", :remote => true %>
   <% end %>
-    
-</div>
 
-<h2><a href="/sessions/destroy">Log Out</a></h2>
+  <%= button_to "Get Another Hashtag", "/genhashtag", method: "get", :remote => true %>  
+      
+</div>
 
 <div class="container">
   <canvas id="snowfall-canvas"></canvas>

@@ -50,12 +50,18 @@ html, body {
 
 .main-links { padding: 10px; }
 .main-links hr { margin: 10px -10px; width: 130%; }
-.main-links li a { text-decoration: none; }
 .main-links li {
   list-style-type: none;
   text-align: center;
   font-size: 1.3em;
   text-transform: uppercase;
+}
+.main-links li a { text-decoration: none; }
+.main-links li a img {
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  margin: 0.5em;
 }
 
 #snowfall-canvas {
@@ -72,18 +78,16 @@ html, body {
   height: 35em;
 }
 
-.new_trip {
-  position: relative;
-  z-index: 2;
+.form-container {
+  position: absolute;
   margin: auto;
-  height: 20em;
-  width: 35em;
-  border: 2px solid black;
+  z-index: 2;
+  height: 21em;
   background-color: #111;
   opacity: 0.85;
 }
-.new_trip h2 { color: #2A6496; }
-.new_trip input, .new_trip select {
+.form-container h2 { color: #2A6496; }
+.form-container input, .form-container select {
   font-size: 1.2em;
   font-family: Helvetica, Arial, sans-serif;
   border-radius: 2px;
