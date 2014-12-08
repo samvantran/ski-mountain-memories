@@ -42,7 +42,6 @@ class TripsController < ApplicationController
   def addvisuals
     @trip=Trip.find(params[:trip_id])
     @visuals=@trip.visuals.all.select {|visual| true}
-    render template: "trips/addvisuals.js.erb"
   end
 
   def genhashtag

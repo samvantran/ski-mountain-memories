@@ -1,6 +1,14 @@
-// $('html').html("<h1>HEYO</h1>")
-var visuals=<%= raw json_escape(@visuals.to_json)%>;
+var oldVisuals=visuals
 
-       for (i = 0; i < visuals.length; i++) { 
+var visuals=<%= raw @visuals.to_json%>;
+
+function check(){
+  for (i = 0; i < visuals.length; i++) { 
+    if (!(vcontains(oldVisuals, visuals[i]))){
+      console.log("not present")
       addMarker(visuals[i]);
-}
+    }
+  };
+};
+
+check();

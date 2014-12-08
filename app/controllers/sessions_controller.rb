@@ -45,8 +45,8 @@ class SessionsController < ApplicationController
           lat=visual[:location][:latitude]
           lng=visual[:location][:longitude]
         else
-          lat=nil
-          lng=nil
+          lat=27.117813 #put no location photos @ atlantis
+          lng=-39.199219
         end
 
         if visual[:caption]
@@ -54,6 +54,7 @@ class SessionsController < ApplicationController
         else
           caption=nil
         end
+
 
         Visual.create(  
           trip_id:        trip_id, 
