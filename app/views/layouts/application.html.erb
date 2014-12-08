@@ -32,7 +32,10 @@
         
         <% if session[:user_id] %>
           <% user = User.find(session[:user_id]) %>
-          <li><a href="http://instagram.com/<%= user.user_name %>"><img src="<%= user.ig_profile_url %>"> <p class="hidden-xs"><%= user.user_name %></p></a></li>
+          <li class="main-user"><a href="http://instagram.com/<%= user.user_name %>">
+            <p class="hidden-xs"><%= user.user_name %></p>
+            <img class="img-circle img-responsive" src="<%= user.ig_profile_url %>"></a>
+          </li>
           <hr>
           <li><a href="<%= new_trip_path %>">Create a trip</a></li>
 
@@ -40,6 +43,8 @@
             <hr>
             <li>Current trip</li>
             #<%= @trip.hashtag %>
+            <hr>
+            <li class="trip-buddies">Trip buddies</li>
             <% end %>
           <hr>
           <li class="logout-link"><a href="<%= sessions_destroy_path %>">Log Out</a></li>
@@ -53,16 +58,10 @@
         </ul>
       </div>
     </div>
-<div id="ajax">
+    
+  <div id="ajax">
     <%= yield %>
-</div>
-    <!-- I think this might work but needs further testing -->
-          <% if @links %>
-            <% @links.each do |link| %>
-            <!-- <li><a href="<%= link.address %>" <%= link.css_class if link.class %>><%= link.phrase %></a></li> -->
-            <% end %> 
-          <% end %>
-
+  </div>
 </body>
 </html>
 
