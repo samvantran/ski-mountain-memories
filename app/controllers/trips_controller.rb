@@ -48,7 +48,4 @@ class TripsController < ApplicationController
     @newhashtag=Trip.genhashtag
   end
 
-  def testmap
-  end
-  
 end
