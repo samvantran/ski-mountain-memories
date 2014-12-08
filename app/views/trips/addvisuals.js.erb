@@ -12,7 +12,7 @@ function check(){
   if ( profile_urls.length < 20 ) {
     for (i = 0; i < visuals.length; i++) { 
       if ( !( contains(profile_urls, visuals[i].ig_id )) && visuals[i].ig_id !== null ) {
-        $('.trip-buddies').append(visuals[i].username + '<img src="' + visuals[i].profile_pic +'">');
+        $('.trip-buddies').append('<a href="http://instagram.com/' + visuals[i].username + '"><img src="' + visuals[i].profile_pic +'"></a>');
         profile_urls.push(visuals[i].ig_id);
       }
     }

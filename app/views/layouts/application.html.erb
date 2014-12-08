@@ -32,7 +32,10 @@
         
         <% if session[:user_id] %>
           <% user = User.find(session[:user_id]) %>
-          <li><a href="http://instagram.com/<%= user.user_name %>"><img src="<%= user.ig_profile_url %>"> <p class="hidden-xs"><%= user.user_name %></p></a></li>
+          <li>
+            <p class="hidden-xs"><%= user.user_name %></p>
+            <a href="http://instagram.com/<%= user.user_name %>"><img src="<%= user.ig_profile_url %>"></a>
+          </li>
           <hr>
           <li><a href="<%= new_trip_path %>">Create a trip</a></li>
 
