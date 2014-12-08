@@ -2,6 +2,7 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 markers = [];
+profile_urls=[];
 
 $(function() {
   
@@ -71,6 +72,15 @@ function addMarker(visual) {
 function vcontains(a, obj) {
     for (var i = 0; i < a.length; i++) {
         if (a[i].thumbnail_url === obj.thumbnail_url) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function contains(a, obj) {
+    for (var i = 0; i < a.length; i++) {
+        if (a[i]=== obj) {
             return true;
         }
     }

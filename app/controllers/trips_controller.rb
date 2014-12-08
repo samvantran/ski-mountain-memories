@@ -42,6 +42,12 @@ class TripsController < ApplicationController
   def addvisuals
     @trip=Trip.find(params[:trip_id])
     @visuals=@trip.visuals.all.select {|visual| true}
+
+    @profile_pics=@visuals.collect do |visual| 
+      visual.profile_pic if visual.trip_id == @trip.id
+
+    end
+
   end
 
   def genhashtag

@@ -1,6 +1,17 @@
 var oldVisuals=visuals
-
 var visuals=<%= raw @visuals.to_json%>;
+
+
+
+  for (i = 0; i < urls.length; i++) { 
+    if (!(contains(urls,  urls[i]))){
+      $('.trip-buddies').append('<img class="img-circle img-responsive center" src="' + urls[i] +'">');
+      urls.push(urls[i]);
+  }
+}
+
+
+
 
 function check(){
   for (i = 0; i < visuals.length; i++) { 
