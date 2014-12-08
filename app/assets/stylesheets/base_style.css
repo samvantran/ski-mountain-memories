@@ -25,6 +25,11 @@ html, body {
   font-family: Helvetica;
   line-height: 2em;
 }
+/* trouble with responsive logout link at bottom of navbar
+ .navbar-links li:last-child {
+  position: relative;
+  padding-top: 150%;
+} */
 
 .navbar-button {
   position: fixed;
@@ -48,18 +53,20 @@ html, body {
   height: 2px;
 }
 
-.main-links { padding: 10px; }
-.main-links hr { margin: 10px -10px; width: 130%; }
-.main-links li {
+
+.main-links {
+  padding: 10px;
   list-style-type: none;
   text-align: center;
   font-size: 1.3em;
   text-transform: uppercase;
+  color: orange;
 }
+.main-links hr { margin: 10px -10px; width: 130%; }
 .main-links li a { text-decoration: none; }
 .main-links li a img {
-  width: 20%;
-  height: 20%;
+  width: 23%;
+  border: 1px solid white;
   border-radius: 50%;
   margin: 0.5em;
 }
@@ -73,9 +80,10 @@ html, body {
 }
 
 #map-canvas {
-  position: absolute;
-  margin: auto 15px;
+  position: fixed;
+  margin: auto;
   height: 35em;
+  width: 90%;
 }
 
 .form-container {

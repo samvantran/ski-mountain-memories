@@ -26,15 +26,22 @@
       </div>
     </div>
 
-    <ActiveRecord::Relation [#<User id: 1, user_name: "svtizzle", ig_id: 5766394, ig_profile_url: "https://instagramimages-a.akamaihd.net/profiles/pr...", created_at: "2014-12-05 19:25:32", updated_at: "2014-12-05 19:25:32">]>
-
     <!-- Links on page -->
     <div class="container">
       <div class="navbar-links">
         <ul class="main-links">
+        
         <% if session[:user_id] %>
           <% user = User.find(session[:user_id]) %>
           <li><a href="http://instagram.com/<%= user.user_name %>"><img src="<%= user.ig_profile_url %>"> <%= user.user_name %></a></li>
+          <hr>
+          <li><a href="<%= new_trip_path %>">Create a trip</a></li>
+
+          <% if @trip && !@trip.hashtag.nil? %>
+            <hr>
+            <li>Current trip</li>
+            #<%= @trip.hashtag %>
+            <% end %>
           <hr>
           <li class="logout-link"><a href="<%= sessions_destroy_path %>">Log Out</a></li>
         <% else %>
@@ -44,6 +51,7 @@
           <hr>
           <li><a href="#">Team</a></li>
         <% end %>
+
         </ul>
       </div>
     </div>
