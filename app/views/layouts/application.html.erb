@@ -12,10 +12,8 @@
 
 <body>
 
-  <div class="container">
+  <div class="container"> 
 
-
-    <!-- the hamburger nav button -->
     <div class="container">
       <div class="main-navbar">
         <button class="navbar-button" type="button" >
@@ -37,10 +35,13 @@
           <li><a href="#">About</a></li>
           <hr>
           <li><a href="#">Team</a></li>
+          <% if session[:access_token] %>
+            <hr>
+            <li class="logout-link"><a href="<%= session_destroy_path %>">Log Out</a></li>
+          <% end %>
         </ul>
       </div>
     </div>
-
     <%= yield %>
 
     <!-- I think this might work but needs further testing -->

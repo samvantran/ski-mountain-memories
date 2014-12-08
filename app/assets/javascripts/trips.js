@@ -53,10 +53,9 @@ $(function() {
 
   }
 
-  google.maps.event.addDomListener(window, 'load', initialize); 
-  // if( typeof google !== 'undefined' ) {
-  //   google.maps.event.addDomListener(window, 'load', initialize);    
-  // }
+  if( typeof google !== 'undefined' ) {
+    google.maps.event.addDomListener(window, 'load', initialize);    
+  }
   
 });
 
