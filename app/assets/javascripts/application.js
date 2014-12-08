@@ -16,7 +16,7 @@
 //= require trips.js
 //= require snowfall.js
 //= require main.js
-
+//= require markerlight.js
 
 
 // there is a bug in the dropdown.js regarding clicking anywhere on page

@@ -1,9 +1,9 @@
 // # Place all the behaviors and hooks related to the matching controller here.
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
-
+var map = null;
 $(document).ready(function() {
-  
+
   function initialize() {
     var lat = $('#map-canvas').data('lat'); 
     var lng = $('#map-canvas').data('lng');
@@ -16,43 +16,81 @@ $(document).ready(function() {
       zoom: zoom_level,
       mapTypeId: google.maps.MapTypeId.TERRAIN
     };
-
     map = new google.maps.Map(mapCanvas, mapOptions); //global
-
-    var marker
-
-    function addMarker(visual) {
-      // debugger
-      var image = {
-        url: visual.thumbnail_url,
-        // This marker is 20 pixels wide by 32 pixels tall.
-        size: new google.maps.Size(200, 200),
-        // The origin for this image is 0,0.
-        origin: new google.maps.Point(0,0),
-        // The anchor for this image is the base of the flagpole at 0,32.
-        anchor: new google.maps.Point(0, 80)
-        // radius: new google.maps.Radius(100)
-      };
-
-      var shape = {
-        coords: [1, 1, 1, 20, 18, 20, 18 , 1],
-        type: 'poly'
-      };
-
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(visual.lat, visual.lng),
-        icon: image,
-        map: map,
-        shape: shape,
-        zIndex: visual.id,
-        animation: google.maps.Animation.DROP
-      });
-    };
-
+    map.setCenter(new G)
     for (var i = 0, visual; visual = visuals[i]; i++) {
       addMarker(visual);
+    };  
+
+    debugger
+
+    map = new GMap2(document.getElementById('map-canvas'));
+    map.setCenter(new GLatLng(37.4419, -122.1419), 4);
+    map.addControl(new GLargeMapControl());
+
+    addRandomMarkers();
+  }
+
+  if( typeof google !== 'undefined' ) {
+    google.maps.event.addDomListener(window, 'load', initialize);    
+  }
+    
+  //ADD MARKER CODE BEGIN
+  function addMarker(visual) {
+    var image = {
+      url: visual.thumbnail_url,
+      // This marker is 20 pixels wide by 32 pixels tall.
+      size: new google.maps.Size(200, 200),
+      // The origin for this image is 0,0.
+      origin: new google.maps.Point(0,0),
+      // The anchor for this image is the base of the flagpole at 0,32.
+      anchor: new google.maps.Point(0, 80)
+      // radius: new google.maps.Radius(100)
     };
 
+    var shape = {
+      coords: [1, 1, 1, 20, 18, 20, 18 , 1],
+      type: 'poly'
+    };
+
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(visual.lat, visual.lng),
+      icon: image,
+      map: map,
+      shape: shape,
+      zIndex: visual.id,
+      animation: google.maps.Animation.DROP
+    });
+  };
+  //ADD MAKER CODE END
+
+  //COPIED FROM MARKERLIGHT
+  function addRandomMarkers() {
+    // var numMarkers = parseInt(document.getElementById("numMarkers").value);
+    // var markerType = document.getElementById("markerType").value;
+
+    // Add markers to the map at random locations
+    var bounds = map.getBounds();
+    var southWest = bounds.getSouthWest();
+    var northEast = bounds.getNorthEast();
+    var lngSpan = northEast.lng() - southWest.lng();
+    var latSpan = northEast.lat() - southWest.lat();
+    for (var i = 0; i < numMarkers; i++) {
+      var latlng = new GLatLng(southWest.lat() + latSpan * Math.random(),
+       southWest.lng() + lngSpan * Math.random());
+      if (markerType == "markerlight") {
+        map.addOverlay(new MarkerLight(latlng, 
+          {image:
+            "http://gmaps-samples.googlecode.com/svn/trunk/markers/circular/bluecirclemarker.png"}));
+      } else {
+        map.addOverlay(new GMarker(latlng));
+      }
+    }
+  };
+
+
+
+    //CREATE MARKER FOR TESTING ALERT MESSAGE
     // var image = {
     //   url: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSBbU1XiZj_pRw5gUrUuReEvcz_QVKs3jtuvZn5FTU3LMM9wakP'
     // };
@@ -68,32 +106,42 @@ $(document).ready(function() {
     //   var marky = marker;
     // };
 
-    google.maps.event.addListener(marker, 'click', function() {
-      alert( "Thanks for visiting!" );
-    });
+
+    //ALERT WHEN YOU CLICK ON MARKER
+    // google.maps.event.addListener(marker, 'click', function() {
+    //   alert( "Thanks for visiting!" );
+    // });
 
 
-  }
+    // COPIED MARKERLIGHT CODE
+    // var map;
 
-  if( typeof google !== 'undefined' ) {
-    google.maps.event.addDomListener(window, 'load', initialize);    
-  }
+    // function initialize() {
+    //   if (GBrowserIsCompatible()) {
+    //     map = new GMap2(document.getElementById("map_canvas"));
+    //     map.setCenter(new GLatLng(37.4419, -122.1419), 4);
+    //     map.addControl(new GLargeMapControl());
+    //   }
+    // }
 
-      $(".fancybox-thumb").fancybox({
-        prevEffect  : 'none',
-        nextEffect  : 'none',
-        helpers : {
-          title : {
-            type: 'outside'
-          },
-          thumbs  : {
-            width : 50,
-            height  : 50
-          }
-        }
-      });
-  
-  
+
+
+
+  //CODE REQUIRED FOR FANCYBOX TEST
+  $(".fancybox-thumb").fancybox({
+    prevEffect  : 'none',
+    nextEffect  : 'none',
+    helpers : {
+      title : {
+        type: 'outside'
+      },
+      thumbs  : {
+        width : 50,
+        height  : 50
+      }
+    }
+  });
+
 });
 
 
