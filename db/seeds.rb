@@ -26,7 +26,7 @@ Visual.create(trip_id: 1,
  lng: 32.4466561, 
  username: "ifigenia_iakovidou", 
  ig_id: 1488588147, 
- profile_pic: "https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-x...", 
+ profile_pic: "https://igcdn-photos-a-a.akamaihd.net/hphotos-ak-xaf1/10844233_1553867984824896_567688064_a.jpg", 
  created_at: "2014-12-08 19:03:31", 
  updated_at: "2014-12-08 19:03:31")
 
@@ -41,6 +41,6 @@ Visual.create(
  lng: 32.364132887, 
  username: "turb0_85", 
  ig_id: 342264000, 
- profile_pic: "https://instagramimages-a.akamaihd.net/profiles/pr...", 
+ profile_pic: "https://igcdn-photos-a-a.akamaihd.net/hphotos-ak-xaf1/10844233_1553867984824896_567688064_a.jpg", 
  created_at: "2014-12-08 19:03:31", 
  updated_at: "2014-12-08 19:03:31")

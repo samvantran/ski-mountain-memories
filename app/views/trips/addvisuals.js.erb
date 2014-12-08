@@ -1,25 +1,22 @@
 var oldVisuals=visuals
 var visuals=<%= raw @visuals.to_json%>;
 
-
-
-  for (i = 0; i < urls.length; i++) { 
-    if (!(contains(urls,  urls[i]))){
-      $('.trip-buddies').append('<img class="img-circle img-responsive center" src="' + urls[i] +'">');
-      urls.push(urls[i]);
-  }
-}
-
-
-
-
 function check(){
   for (i = 0; i < visuals.length; i++) { 
     if (!(vcontains(oldVisuals, visuals[i]))){
       console.log("not present")
       addMarker(visuals[i]);
     }
-  };
+  }
+
+  if ( profile_urls.length < 20 ) {
+    for (i = 0; i < visuals.length; i++) { 
+      if ( !( contains(profile_urls, visuals[i].ig_id )) && visuals[i].ig_id !== null ) {
+        $('.trip-buddies').append(visuals[i].username + '<img src="' + visuals[i].profile_pic +'">');
+        profile_urls.push(visuals[i].ig_id);
+      }
+    }
+  }
 };
 
 check();

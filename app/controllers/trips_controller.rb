@@ -45,7 +45,6 @@ class TripsController < ApplicationController
 
     @profile_pics=@visuals.collect do |visual| 
       visual.profile_pic if visual.trip_id == @trip.id
-
     end
 
   end
