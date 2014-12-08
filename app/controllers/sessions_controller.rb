@@ -11,13 +11,14 @@ class SessionsController < ApplicationController
 
     if session[:access_token]
       user = User.find_by(ig_id: response.user.id) || User.create( user_name: response.user.username, 
-                                                            ig_id: response.user.id, 
-                                                            ig_profile_url: response.user.profile_picture)
+                                                                                                    ig_id: response.user.id, 
+                                                                                                    ig_profile_url: response.user.profile_picture)
       session[:user_id] = user.id
+
       redirect_to new_trip_path
 
     else
-      redirect_to root_path, :notice => "Sorry, you were not authenticated. Please try again."
+      redirect_to root_path
     end
   end
 
@@ -32,6 +33,7 @@ class SessionsController < ApplicationController
     else
       #currently not accepting payloads with more than 1 update, but every recent_media query will capture it regardless of the contents of the update. 
       current_tag = params[:_json][0][:object_id]         # the tag that just popped
+
       puts "$$$$$$$$$$$CURRENT TAG: #{current_tag}$$$$$$$$$$$$"
 
       trip_id = Trip.find_by(hashtag: current_tag).id

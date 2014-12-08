@@ -1,6 +1,7 @@
 // # Place all the behaviors and hooks related to the matching controller here.
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
+markers = [];
 
 $(function() {
   
@@ -59,6 +60,22 @@ $(function() {
   }
   
 });
+
+function addMarker(visual) {
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(visual.lat, visual.lng),
+    icon: visual.thumbnail_url,
+    map: map
+  });
+
+  markers.push(marker)
+  var date = new Date(0); 
+  date.setUTCSeconds(visual.time_taken);
+
+  $('#photo-time').html(date)
+}
+
+
 
 
 

@@ -1,8 +1,11 @@
 
-<h1><%= notice %></h1>
 
 <div class="container form-container">
-  <%= form_for @trip do |f| %>
+
+<h1>Welcome <%= current_user.user_name %></h1>
+<h2><%= link_to "My Trips", current_user %><h2>
+<%= form_for @trip do |f| %>
+
 
     <h2>What mountain are you going to?</h2>
     <%= f.select :mountain_id, Mountain.all.collect {|m| [m.name, m.id]}, {prompt: 'select mountain'} %>
@@ -23,10 +26,4 @@
 
 
 <script>snow()</script>
-
-<!-- 1. alert when trip was not created
-2. placeholder should be unique hashtag
-@trip.gen_hashtag
-3. make button to get new one
- -->
 

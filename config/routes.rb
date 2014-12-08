@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
 
   root 'root#index'
-  
-  get 'users/show'
 
-  get 'users/index'
-
+  resources :users, only: [:show]
   resources :trips, except: [:destroy]
   get '/about' => 'root#about'
   get '/team' => 'root#team'
@@ -21,6 +18,9 @@ Rails.application.routes.draw do
 
   get 'addvisuals' => 'trips#addvisuals'
   get 'genhashtag' => 'trips#genhashtag'
+
+  get 'showphotos' => 'trips#showphotos'
+  get 'clearphotos' => 'trips#clearphotos'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20141203222631) do
     t.string   "username"
     t.integer  "ig_id"
     t.text     "profile_pic"
+
     t.datetime "created_at"
     t.datetime "updated_at"
   end

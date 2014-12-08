@@ -1,8 +1,5 @@
-<head>
 
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script google.load("earth", "1", {"other_params":"sensor=false"});></script>
-</head>
-
-<h1>Earth View</h1>
-<div id="map3d" style="height: 400px; width: 600px;"></div>
+<h4 >These are all your trips:</h4>
+<ol >
+<%= render partial: "usertrips", collection: @usertrips %>
+</ol>
