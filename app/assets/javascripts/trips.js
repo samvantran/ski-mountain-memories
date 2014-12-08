@@ -40,10 +40,10 @@ $(function() {
 function addMarker(visual) {
   var image = {
     url: visual.thumbnail_url,
-    size: new google.maps.Size(15, 15),
+    size: new google.maps.Size(80,80),
     origin: new google.maps.Point(0, 0),
     anchor: new google.maps.Point(0, 0),
-    scaledSize: new google.maps.Size(100, 100)
+    scaledSize: new google.maps.Size(80, 80)
   };
 
   var marker = new google.maps.Marker({
