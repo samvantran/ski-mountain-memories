@@ -62,3 +62,4 @@ gem "figaro"
 gem "instagram"
 gem 'newrelic_rpm'
 gem 'jquery-ui-rails'
+

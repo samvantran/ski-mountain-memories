@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'instagram#new'
+  root 'root#index'
   
   get 'users/show'
 
+  get 'users/index'
+
   resources :trips, except: [:destroy]
-  resources :instagram, only: [:team, :new]
-  get '/about' => 'instagram#about'
-  get '/team' => 'instagram#team'
+  get '/about' => 'root#about'
+  get '/team' => 'root#team'
 
   resources :sessions, only: [:new, :create, :destroy]
 

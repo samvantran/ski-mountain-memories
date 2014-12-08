@@ -1,11 +1,101 @@
-body {
+html, body {
   text-align: center;
   vertical-align: middle;
+  background: url("bg-mountain.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+  font-family: Helvetica, Arial, san-serif;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.navbar-links {
+  position: fixed;
+  z-index: 99;
+  height: 100%;
+  width: 24%;
+  left: 101%;
+  top: 0;
+  background-color: #111;
+  opacity: 0.70;
+  font-weight: bold;
+  font-family: Helvetica;
+  line-height: 2em;
+}
+
+.navbar-button {
+  position: fixed;
+  z-index: 100;
+  left: 96%;
+  margin-top: 1%;
+  height: 40px;
+  width: 40px;
+  opacity: 0.65;
+  background-color: #000;
+/*  background: url("snowflake-small.png");
+  background-size: cover;*/
+}
+
+.navbar-button span.icon-bar {
+  display: block;
+  margin: 25% 0;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 4px;
+  height: 2px;
+}
+
+.main-links { padding: 10px; }
+.main-links li a { text-decoration: none; }
+.main-links hr { margin: 10px -10px; width: 130%; }
+
+.main-links li {
+  list-style-type: none;
+  text-align: center;
+  font-size: 1.3em;
+  text-transform: uppercase;
+}
+
+#snowfall-canvas {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 #map-canvas {
-  width: 1000px;
-  height: 800px; 
-  margin-right: auto;
-  margin-left: auto;
+  position: absolute;
+  margin: auto 15px;
+  height: 35em;
+}
+
+/* MEDIA QUERIES FOR RESPONSIVENESS */
+
+@media (max-width: 769px) {
+   .navbar-button {
+    left: 93%;
+    margin-top: 1%;
+  }
+}
+
+@media (max-width: 361px) {
+  .navbar-button {
+    left: 85%;
+    top: 1%;
+    height: 2.5em;
+    width: 2.5em;
+  }
+  
+  .navbar-links {
+    position: fixed;
+    z-index: 99;
+    height: 100%;
+    width: 15%;
+    left: 101%;
+  }
 }
