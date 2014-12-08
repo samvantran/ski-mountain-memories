@@ -49,4 +49,10 @@ class TripsController < ApplicationController
     @newhashtag=Trip.genhashtag
   end
 
+  def showphotos
+  end
+
+  def clearphotos
+  end
+
 end
