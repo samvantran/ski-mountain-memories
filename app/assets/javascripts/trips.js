@@ -29,12 +29,12 @@ $(function() {
       iw.setContent(marker.popup);
       iw.open(map, marker);
     });
+  
+}//end of initialize
 
   if( typeof google !== 'undefined' ) {
     google.maps.event.addDomListener(window, 'load', initialize);    
   }
-  
-}//end of initialize
 });//end of document.ready
 
 function addMarker(visual) {
