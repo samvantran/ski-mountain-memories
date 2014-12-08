@@ -13,25 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+
 //= require trips.js
+//= require oms.min.js
 //= require snowfall.js
-//= require main.js
 //= require markerlight.js
+//= require jquery-ui
+//= require navbarslider.js
 
 
-// there is a bug in the dropdown.js regarding clicking anywhere on page
-//     if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
 
-//         document._oldGetElementById = document.getElementById;
-//         document.getElementById = function(id) {
-
-//             if(id === undefined || id === null || id === '') {
-
-//                 return undefined;
-
-//             }
-
-//             return document._oldGetElementById(id);
-//         };
-
-//     }

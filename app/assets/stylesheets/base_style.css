@@ -1,34 +1,35 @@
-/*Old formatting of body to make mape full-size on page. will have to reconcile with body tag below*/
-/*html,body {
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
+html, body {
   text-align: center;
-  vertical-align: bottom;
-}
-*/
-
-body {
-  /*text-align: center;
-  vertical-align: middle;*/
+  vertical-align: middle;
   background: url("bg-mountain.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;
           background-size: cover;
   font-family: Helvetica, Arial, san-serif;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 .navbar-links {
   position: fixed;
   z-index: 99;
   height: 100%;
-  width: 14%;
+  width: 24%;
   left: 101%;
   top: 0;
   background-color: #111;
-  opacity: 0.75;
+  opacity: 0.70;
+  font-weight: bold;
+  font-family: Helvetica;
+  line-height: 2em;
 }
+/* trouble with responsive logout link at bottom of navbar
+ .navbar-links li:last-child {
+  position: relative;
+  padding-top: 150%;
+} */
 
 .navbar-button {
   position: fixed;
@@ -39,7 +40,7 @@ body {
   width: 40px;
   opacity: 0.65;
   background-color: #000;
-  /*background: url("snowflake-small.png");
+/*  background: url("snowflake-small.png");
   background-size: cover;*/
 }
 
@@ -52,19 +53,26 @@ body {
   height: 2px;
 }
 
-.main-links { padding: 10px; }
-.main-links li a { text-decoration: none; }
-.main-links hr { margin: 10px -10px; width: 130%; }
-.main-links li {
+
+.main-links {
+  padding: 10px;
   list-style-type: none;
   text-align: center;
   font-size: 1.3em;
   text-transform: uppercase;
+  color: orange;
+}
+.main-links hr { margin: 10px -10px; width: 130%; }
+.main-links li a { text-decoration: none; }
+.main-links li a img {
+  width: 23%;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin: 0.5em;
 }
 
-canvas#canvas {
-  z-index: -1;
-  position: absolute;
+#snowfall-canvas {
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -73,15 +81,33 @@ canvas#canvas {
 
 #map-canvas {
   position: fixed;
-  height: 800px;
- /* width: 100px;*/
+  margin: auto;
+  height: 35em;
+  width: 90%;
+}
+
+.form-container {
+  position: absolute;
+  margin: auto;
+  z-index: 2;
+  height: 21em;
+  background-color: #111;
+  opacity: 0.85;
+}
+.form-container h2 { color: #2A6496; }
+.form-container input, .form-container select {
+  font-size: 1.2em;
+  font-family: Helvetica, Arial, sans-serif;
+  border-radius: 2px;
+  margin: 0.1em; 
+  color: black;
 }
 
 /* MEDIA QUERIES FOR RESPONSIVENESS */
 
 @media (max-width: 769px) {
    .navbar-button {
-    left: 90%;
+    left: 93%;
     margin-top: 1%;
   }
 }
@@ -102,4 +128,3 @@ canvas#canvas {
     left: 101%;
   }
 }
-

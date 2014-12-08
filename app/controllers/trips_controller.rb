@@ -26,6 +26,7 @@ class TripsController < ApplicationController
       @message="Please select a mountain"
     else
       trip = Trip.new(mountain_id: params[:trip][:mountain_id], hashtag: params[:trip][:hashtag])
+      trip.users << current_user
       if !trip.save #couldn't save.
       # JJK: I think this kind of behavior should be handled in the model and then written to ERRORS, and ERROrs should be in the view
         @message="Please select another hashtag"
@@ -46,6 +47,12 @@ class TripsController < ApplicationController
 
   def genhashtag
     @newhashtag=Trip.genhashtag
+  end
+
+  def showphotos
+  end
+
+  def clearphotos
   end
 
 end

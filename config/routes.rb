@@ -1,16 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'instagram#new'
-  
-  get 'users/show'
+  root 'root#index'
 
-  get 'users/index'
-
+  resources :users, only: [:show]
   resources :trips, except: [:destroy]
+  get '/about' => 'root#about'
+  get '/team' => 'root#team'
 
-  get '/earth' => 'trips#earth'
-
-  resources :instagram, only: [:index, :new]
   resources :sessions, only: [:new, :create, :destroy]
 
   get 'sessions/sub_callback' => 'sessions#sub_callback'    # for instagram subscriptions
@@ -22,6 +18,9 @@ Rails.application.routes.draw do
 
   get 'addvisuals' => 'trips#addvisuals'
   get 'genhashtag' => 'trips#genhashtag'
+
+  get 'showphotos' => 'trips#showphotos'
+  get 'clearphotos' => 'trips#clearphotos'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

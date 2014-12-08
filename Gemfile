@@ -61,3 +61,5 @@ gem "bootstrap-sass", "~> 3.1.1"
 gem "figaro"
 gem "instagram"
 gem 'newrelic_rpm'
+gem 'jquery-ui-rails'
+

@@ -1,0 +1,75 @@
+
+
+<h1>About Ski Mountain Memories (SMM)</h1>
+  
+<ul class="text-left">
+    
+<div id="accordion">
+<h2>What is it?</h2>
+<div class="indent">
+A frequent problem while enjoying snow sports is that all the great pictures taken during the trip look very similar due to the surroundings. SMM attempts to provide context for those photographs by using geolocation data pulled from your submissions to Instagram and plotting them on a map. SMM also allows you to share your trip photos and map with friends so that the party you are with can enjoy live updates about the mountain, and friends who are not present can be jealous. 
+</div>
+
+<h2>Why build it?</h2>
+<div class="indent">
+  Our group frequently encountered the problem of context-less media collected during winter adventures and wanted a way to solve that problem. 
+</div>
+
+<h2>How does it work?</h2>
+<div class="indent">
+<ul>
+<li>
+SMM allows a user to log in using Instagram via OAuth
+</li>
+
+<li>
+SMM generates an easy to remember hashtag to share with friends and associates the hashtag with a particular trip in our Postgres database
+</li>
+
+<li>
+SMM uses the Instagram API to create a subscription to that hashtag, and when it recieves a push update to the hashtag, inserts a new media object into the database
+</li>
+
+<li>
+SMM uses the Google Maps API to draw a map of the particular mountain selected, and Javascript to place and update markers for each of the photos associated with a hashtag
+</li>
+
+<li>
+SMM can also be used visualize any hashtag's occurences live on a map 
+</li>
+
+<li>
+For SMM to work users must provide geolocation data when posting to Instagram. Photos without location data are ignored
+</li>
+
+
+<li>
+SMM is hosted on Heroku (Unicorn web server with New Relic for monitoring), Ruby on Rails powers the server side and JQuery handles client side interactions
+</li>
+</ul>
+</div>
+
+<h2>Who made it?</h2>
+<div class="indent">
+SMM is a project built by three students at The Flatiron School's web immersive course in NYC, NY. See our <%= link_to "About", about_path, :target => "_blank" %> page to learn more
+</div>
+
+<h2>Are there any features that didn't make it in?</h2>
+<div class="indent">
+Originally the project was intended to also solve two other problems:
+<ol>
+<li> 
+It's hard to track your friends when on a mountain, and you spend an unreasonable amount of time just communicating where you are to each other. We wanted to run the app pseudo-natively on phones, and send users on the same "trip" each others' location
+</li>
+<li>
+  Some trails are more crowded than others, and your decision to choose one over the other could be informed by person-traffic, if that data was available. One solution was to poll for Instagram/Flickr geolocated photos and to treat increased media activity as increased crowding (say on a ski lift), and then to mark those locations as higher traffic
+</li> 
+</div>
+
+<h2>Where can I look at your code?</h2>
+<div class="indent">
+<%= link_to "Follow our project on GitHub", "http://github.com/samvantran/ski-mountain-memories/", :target => "_blank" %>
+</div>
+
+</div>
+</ul>
