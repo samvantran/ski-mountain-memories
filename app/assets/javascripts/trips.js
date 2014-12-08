@@ -30,11 +30,18 @@ $(function() {
       iw.open(map, marker);
     });
   
+
+  for (i = 0; i < visuals.length; i++) { 
+  addMarker(visuals[i])
+}
+
 }//end of initialize
 
   if( typeof google !== 'undefined' ) {
     google.maps.event.addDomListener(window, 'load', initialize);    
   }
+
+
 });//end of document.ready
 
 function addMarker(visual) {
