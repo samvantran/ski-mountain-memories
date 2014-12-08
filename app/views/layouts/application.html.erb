@@ -12,7 +12,6 @@
 
 <body>
 
-  <div class="container"> 
     <div class="container">
       <div class="main-navbar">
         <button class="navbar-button" type="button" >
@@ -32,7 +31,7 @@
         
         <% if session[:user_id] %>
           <% user = User.find(session[:user_id]) %>
-          <li><a href="http://instagram.com/<%= user.user_name %>"><img src="<%= user.ig_profile_url %>"> <%= user.user_name %></a></li>
+          <li><a href="http://instagram.com/<%= user.user_name %>"><img src="<%= user.ig_profile_url %>"> <p class="hidden-xs"><%= user.user_name %></p></a></li>
           <hr>
           <li><a href="<%= new_trip_path %>">Create a trip</a></li>
 
@@ -62,7 +61,6 @@
             <!-- <li><a href="<%= link.address %>" <%= link.css_class if link.class %>><%= link.phrase %></a></li> -->
             <% end %> 
           <% end %>
-  </div>
 
 </body>
 </html>
