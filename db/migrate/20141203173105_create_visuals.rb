@@ -9,6 +9,9 @@ class CreateVisuals < ActiveRecord::Migration
       t.text :caption
       t.float :lat
       t.float :lng
+      t.string :username
+      t.integer :ig_id
+      t.text :profile_pic
       t.timestamps
     end
   end
