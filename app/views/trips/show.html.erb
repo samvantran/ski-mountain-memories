@@ -9,7 +9,7 @@
 <%= link_to "Show Photos", showphotos_path, remote: true %>
 <%= link_to "Clear Photos", clearphotos_path, remote: true %>
 
-
+<div id="photo-time"> </div>
 <div><h1>Mountain Map</h1></div>
 <%= content_tag "div", id: "map-canvas", data: {lat: @lat, lng: @lng, zoom: @zoom_level, visuals: @visuals,  trip_id: @trip.id} do %>
 

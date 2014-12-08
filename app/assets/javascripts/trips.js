@@ -41,6 +41,10 @@ function addMarker(visual) {
   });
 
   markers.push(marker)
+  var date = new Date(0); 
+  date.setUTCSeconds(visual.time_taken);
+
+  $('#photo-time').html(date)
 }
 
 
