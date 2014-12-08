@@ -12,10 +12,6 @@
 
 <body>
 
-  <div class="container">
-
-
-    <!-- the hamburger nav button -->
     <div class="container">
       <div class="main-navbar">
         <button class="navbar-button" type="button" >
@@ -32,6 +28,21 @@
     <div class="container">
       <div class="navbar-links">
         <ul class="main-links">
+        
+        <% if session[:user_id] %>
+          <% user = User.find(session[:user_id]) %>
+          <li><a href="http://instagram.com/<%= user.user_name %>"><img src="<%= user.ig_profile_url %>"> <p class="hidden-xs"><%= user.user_name %></p></a></li>
+          <hr>
+          <li><a href="<%= new_trip_path %>">Create a trip</a></li>
+
+          <% if @trip && !@trip.hashtag.nil? %>
+            <hr>
+            <li>Current trip</li>
+            #<%= @trip.hashtag %>
+            <% end %>
+          <hr>
+          <li class="logout-link"><a href="<%= sessions_destroy_path %>">Log Out</a></li>
+        <% else %>
           <li><a href="<%= instagram_oauth_connect_path %>">Sign in with Instagram</a></li>
           <hr>
           <li><%= link_to "About", about_path, remote: true %></li>
@@ -49,7 +60,6 @@
             <!-- <li><a href="<%= link.address %>" <%= link.css_class if link.class %>><%= link.phrase %></a></li> -->
             <% end %> 
           <% end %>
-  </div>
 
 </body>
 </html>

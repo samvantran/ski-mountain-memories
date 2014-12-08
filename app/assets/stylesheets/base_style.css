@@ -25,6 +25,11 @@ html, body {
   font-family: Helvetica;
   line-height: 2em;
 }
+/* trouble with responsive logout link at bottom of navbar
+ .navbar-links li:last-child {
+  position: relative;
+  padding-top: 150%;
+} */
 
 .navbar-button {
   position: fixed;
@@ -48,20 +53,26 @@ html, body {
   height: 2px;
 }
 
-.main-links { padding: 10px; }
-.main-links li a { text-decoration: none; }
-.main-links hr { margin: 10px -10px; width: 130%; }
 
-.main-links li {
+.main-links {
+  padding: 10px;
   list-style-type: none;
   text-align: center;
   font-size: 1.3em;
   text-transform: uppercase;
+  color: orange;
+}
+.main-links hr { margin: 10px -10px; width: 130%; }
+.main-links li a { text-decoration: none; }
+.main-links li a img {
+  width: 23%;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin: 0.5em;
 }
 
 #snowfall-canvas {
-  z-index: -1;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -69,9 +80,27 @@ html, body {
 }
 
 #map-canvas {
-  position: absolute;
-  margin: auto 15px;
+  position: fixed;
+  margin: auto;
   height: 35em;
+  width: 90%;
+}
+
+.form-container {
+  position: absolute;
+  margin: auto;
+  z-index: 2;
+  height: 21em;
+  background-color: #111;
+  opacity: 0.85;
+}
+.form-container h2 { color: #2A6496; }
+.form-container input, .form-container select {
+  font-size: 1.2em;
+  font-family: Helvetica, Arial, sans-serif;
+  border-radius: 2px;
+  margin: 0.1em; 
+  color: black;
 }
 
 /* MEDIA QUERIES FOR RESPONSIVENESS */
