@@ -23,39 +23,39 @@ $(function() {
        //global
        window.oms = new OverlappingMarkerSpiderfier(map,
          {markersWontMove: true, markersWontHide: true});
-       var usualColor = 'eebb22';
-       var spiderfiedColor = 'ffee22';
-       var iconWithColor = function(color) {
-         return 'http://chart.googleapis.com/chart?chst=d_map_xpin_letter&chld=pin|+|' +
-           color + '|000000|ffff00';
-       }
+       // var usualColor = 'eebb22';
+       // var spiderfiedColor = 'ffee22';
+       // var iconWithColor = function(color) {
+       //   return 'http://chart.googleapis.com/chart?chst=d_map_xpin_letter&chld=pin|+|' +
+       //     color + '|000000|ffff00';
+       // }
        
-      var shadow = new google.maps.MarkerImage(
-         'https://www.google.com/intl/en_ALL/mapfiles/shadow50.png',
-         new google.maps.Size(37, 34),  // size   - for sprite clipping
-         new google.maps.Point(0, 0),   // origin - ditto
-         new google.maps.Point(10, 34)  // anchor - where to meet map location
-       );
+      // var shadow = new google.maps.MarkerImage(
+      //    'https://www.google.com/intl/en_ALL/mapfiles/shadow50.png',
+      //    new google.maps.Size(37, 34),  // size   - for sprite clipping
+      //    new google.maps.Point(0, 0),   // origin - ditto
+      //    new google.maps.Point(10, 34)  // anchor - where to meet map location
+      //  );
 
     oms.addListener('click', function(marker) {
-      iw.setContent(marker.desc);
+      iw.setContent(marker.popup);
       iw.open(map, marker);
     });
 
-    oms.addListener('spiderfy', function(markers) {
-      for(var i = 0; i < markers.length; i ++) {
-        markers[i].setIcon(iconWithColor(spiderfiedColor));
-        markers[i].setShadow(null);
-      } 
-      iw.close();
-    });
+    // oms.addListener('spiderfy', function(markers) {
+    //   for(var i = 0; i < markers.length; i ++) {
+    //     markers[i].setIcon(iconWithColor(spiderfiedColor));
+    //     markers[i].setShadow(null);
+    //   } 
+    //   iw.close();
+    // });
 
-    oms.addListener('unspiderfy', function(markers) {
-      for(var i = 0; i < markers.length; i ++) {
-        markers[i].setIcon(iconWithColor(usualColor));
-        markers[i].setShadow(shadow);
-      }
-    });
+    // oms.addListener('unspiderfy', function(markers) {
+    //   for(var i = 0; i < markers.length; i ++) {
+    //     markers[i].setIcon(iconWithColor(usualColor));
+    //     markers[i].setShadow(shadow);
+    //   }
+    // });
     
   }//end of initialize
 
@@ -64,11 +64,24 @@ $(function() {
 });
 
 function addMarker(visual) {
+  var image = {
+    url: visual.thumbnail_url,
+    size: new google.maps.Size(15, 15),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(0, 0),
+    scaledSize: new google.maps.Size(100, 100)
+  };
+
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(visual.lat, visual.lng),
-    icon: visual.thumbnail_url,
-    map: map
+    icon: image,
+    map: map,
+    animation: google.maps.Animation.DROP,
+    popup: '<img src=' + visual.thumbnail_url + '>'
+
   });
+
+  oms.addMarker(marker);
 
 }
 
