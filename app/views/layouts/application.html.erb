@@ -42,8 +42,9 @@
 
           <% if @trip && !@trip.hashtag.nil? %>
             <hr>
-            <li>Current trip</li>
-            #<%= @trip.hashtag %>
+            <li>Share this trip</li>
+            #<%= @trip.hashtag %><br>
+            <%= trip_url(@trip) %>
             <hr>
             <li class="trip-buddies">Trip buddies <br></li>
             <% end %>
