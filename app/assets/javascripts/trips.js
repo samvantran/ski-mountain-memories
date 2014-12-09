@@ -5,7 +5,7 @@
 
 $(document).ready(function() {
 
-  var overlays = [];
+  overlays = [];
   SKIOverlay.prototype = new google.maps.OverlayView();
 
   function initialize() {
@@ -23,17 +23,17 @@ $(document).ready(function() {
     var map = new google.maps.Map(mapCanvas, mapOptions); //global
 
 
-    for (var i = 0, visual; visual = visuals[i]; i++) {
+    for (var i = 0; i < visuals.length; i++) {
       // debugger  
-      var swBound = new google.maps.LatLng(visual.lat, visual.lng);
-      var neBound = new google.maps.LatLng(visual.lat, visual.lng);
+      var swBound = new google.maps.LatLng(visuals[i].lat, visuals[i].lng);
+      var neBound = new google.maps.LatLng(visuals[i].lat, visuals[i].lng);
       var bounds = new google.maps.LatLngBounds(swBound, neBound);
-      // bounds = bounds + "i";
-      var srcImage = visual.thumbnail_url;
-      // srcImage = srcImage + "i";
+      var srcImage = visuals[i].thumbnail_url;
+
       overlays.push(new SKIOverlay(bounds, srcImage, map));
     };
     
+    console.log(overlays);
   }
 
   /** @constructor */
@@ -56,18 +56,22 @@ $(document).ready(function() {
   SKIOverlay.prototype.onAdd = function() {
     var div = document.createElement('div');
     div.style.border = 'solid green';
-    div.style.borderWidth = '10px';
+    div.style.borderWidth = '3px';
     div.style.position = 'absolute';
     div.style.cursor = 'pointer';
-    div.className = "fancybox-thumb";
-    div.setAttribute("rel", "fancybox-thumb");
-    div.setAttribute("href", "http://scontent-a.cdninstagram.com/hphotos-xfa1/t51.2885-15/10817636_759659604113358_950808159_n.jpg");
+    div.className = "fancybox-media";
+    // div.setAttribute("rel", "fancybox-media");
+    // console.log(srcImage);
+    div.setAttribute("href", this.image_);
 
     // Create the img element and attach it to the div.
     var img = document.createElement('img');
     img.src = this.image_;
     img.style.width = '100px';
     img.style.height = '100px';
+    img.style.left = '-50px';
+    img.style.top = '-50px';
+    img.style.position = 'relative';
     img.style.borderRadius = '50%';
     div.appendChild(img);
 
@@ -93,11 +97,10 @@ $(document).ready(function() {
 
     // Resize the image's div to fit the indicated dimensions.
     var div = this.div_;
-    debugger
     div.style.left = sw.x + 'px';
     div.style.top = ne.y + 'px';
-    div.style.width = (ne.x - sw.x) + 'px';
-    div.style.height = (sw.y - ne.y) + 'px';
+    div.style.width = '1px';
+    div.style.height ='1px';
   };
 
   if( typeof google !== 'undefined' ) {
@@ -105,95 +108,22 @@ $(document).ready(function() {
   }
 
   //CODE REQUIRED FOR FANCYBOX TEST
-  $(".fancybox-thumb").fancybox({
+  $(".fancybox-media").fancybox({
     prevEffect  : 'none',
     nextEffect  : 'none',
     helpers : {
-      title : {
-        type: 'outside'
-      },
-      thumbs  : {
-        width : 50,
-        height  : 50
-      }
+      media : {}
+      // title : {
+      //   type: 'outside'
+      // },
+      // thumbs  : {
+      //   width : 50,
+      //   height  : 50
+      // }
     }
   });
 
-});
-
-  //ADD MARKER CODE BEGIN
-  // function addMarker(visual) {
-  //   var image = {
-  //     url: visual.thumbnail_url,
-  //     // This marker is 20 pixels wide by 32 pixels tall.
-  //     size: new google.maps.Size(200, 200),
-  //     // The origin for this image is 0,0.
-  //     origin: new google.maps.Point(0,0),
-  //     // The anchor for this image is the base of the flagpole at 0,32.
-  //     anchor: new google.maps.Point(0, 80)
-  //     // radius: new google.maps.Radius(100)
-  //   };
-
-  //   var shape = {
-  //     coords: [1, 1, 1, 20, 18, 20, 18 , 1],
-  //     type: 'poly'
-  //   };
-
-  //   var marker = new google.maps.Marker({
-  //     position: new google.maps.LatLng(visual.lat, visual.lng),
-  //     icon: image,
-  //     map: map,
-  //     shape: shape,
-  //     zIndex: visual.id,
-  //     animation: google.maps.Animation.DROP
-  //   });
-  // };
-  //ADD MAKER CODE END
-
-
-
-
-    //CREATE MARKER FOR TESTING ALERT MESSAGE
-    // var image = {
-    //   url: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSBbU1XiZj_pRw5gUrUuReEvcz_QVKs3jtuvZn5FTU3LMM9wakP'
-    // };
-
-    // var marker = new google.maps.Marker({
-    //   position: new google.maps.LatLng(39.470746, -106.083668),
-    //   icon: image,
-    //   map: map,
-    //   animation: google.maps.Animation.DROP
-    // });
-
-    // for (var i = 0, visual; visual = visuals[i]; i++) {
-    //   var marky = marker;
-    // };
-
-
-    //ALERT WHEN YOU CLICK ON MARKER
-    // google.maps.event.addListener(marker, 'click', function() {
-    //   alert( "Thanks for visiting!" );
-    // });
-
-
-    // COPIED MARKERLIGHT CODE
-    // var map;
-
-    // function initialize() {
-    //   if (GBrowserIsCompatible()) {
-    //     map = new GMap2(document.getElementById("map_canvas"));
-    //     map.setCenter(new GLatLng(37.4419, -122.1419), 4);
-    //     map.addControl(new GLargeMapControl());
-    //   }
-    // }
-
-
-
-    // for (var i = 0, visual; visual = visuals[i]; i++) {
-    //   addMarker(visual);
-    // };  
-
-
+});//end of document ready
 
 
 
