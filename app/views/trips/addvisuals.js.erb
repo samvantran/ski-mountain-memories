@@ -17,10 +17,15 @@ function check(){
 };
 
 check();
+
+  // for (i = 0; i < visuals.length; i++) { 
+  //     addMarker(visuals[i]);
+  // }
+
 $('[data-toggle="tooltip"]').tooltip()
 
 for (i = 0; i < markers.length; i++) { 
-  google.maps.event.addListener(markers[i], 'click', function() {
+  google.maps.event.addListener(markers[i], 'dblclick', function() {
   $.fancybox({
     'type' : 'iframe',
   href: this.imageUrl
