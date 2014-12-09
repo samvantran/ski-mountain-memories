@@ -21,15 +21,15 @@ $(function() {
 
     map = new google.maps.Map(mapCanvas, mapOptions); //global
 
-    var iw = new google.maps.InfoWindow();
+    // var iw = new google.maps.InfoWindow();
        //global
        oms = new OverlappingMarkerSpiderfier(map,
          {markersWontMove: true, markersWontHide: true});
 
-    oms.addListener('click', function(marker) {
-      iw.setContent(marker.popup);
-      iw.open(map, marker);
-    });
+    // oms.addListener('click', function(marker) {
+    //   iw.setContent(marker.popup);
+    //   iw.open(map, marker);
+    // });
   
 
   for (i = 0; i < visuals.length; i++) { 
@@ -59,6 +59,7 @@ function addMarker(visual) {
     icon: image,
     map: map,
     animation: google.maps.Animation.DROP,
+    imageUrl: visual.standard_url,
     popup: '<img src=' + visual.thumbnail_url + '>'
 
   });

@@ -2,12 +2,16 @@ var oldVisuals=visuals
 var visuals=<%= raw @visuals.to_json%>;
 
 function check(){
+  // for (i = 0; i < visuals.length; i++) { 
+  //   if (!(vcontains(oldVisuals, visuals[i]))){
+  //     addMarker(visuals[i]);
+  //   }
+  // }
+  
   for (i = 0; i < visuals.length; i++) { 
-    if (!(vcontains(oldVisuals, visuals[i]))){
       addMarker(visuals[i]);
-    }
   }
-    
+  
   for (i = 0; i < visuals.length && profile_urls.length < 20; i++) { 
     if ( !( contains(profile_urls, visuals[i].ig_id )) && visuals[i].ig_id !== null ) {
       $('.trip-buddies').append('<a href="http://instagram.com/' + visuals[i].username + '"><img src="' + visuals[i].profile_pic +'" data-toggle="tooltip" data-placement="left" title="' + visuals[i].username + '"></a>');
@@ -17,4 +21,23 @@ function check(){
 };
 
 check();
+
+
+
 $('[data-toggle="tooltip"]').tooltip()
+
+for (i = 0; i < markers.length; i++) { 
+  google.maps.event.addListener(markers[i], 'dblclick', function() {
+  $.fancybox({
+    'type' : 'iframe',
+  href: this.imageUrl
+  // other options
+  // autoSize : false,
+  //     width    : "50%",
+  //     height   : "auto"
+  });     
+  }); 
+
+  }
+
+
