@@ -1,4 +1,9 @@
 
+<script>//leave this here otherwise you will get errors on friendly urls
+function markerTimer(){$.get( "/addvisuals", {trip_id: $('#map-canvas').data('trip-id')},"script");}
+var timer=setInterval(markerTimer, 1000);
+</script>
+
 <%= link_to "Show Photos", showphotos_path, remote: true %>
 <%= link_to "Clear Photos", clearphotos_path, remote: true %>
 

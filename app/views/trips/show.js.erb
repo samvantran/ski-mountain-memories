@@ -29,9 +29,6 @@ function initialize() {
 }
 
 }//end of initialize
-  
-function markerTimer(){$.get( "/addvisuals", {trip_id: $('#map-canvas').data('trip-id')},"script");}
-var timer=setInterval(markerTimer, 1000);
 
 google.maps.event.addDomListener(window, 'load', initialize);    
 
