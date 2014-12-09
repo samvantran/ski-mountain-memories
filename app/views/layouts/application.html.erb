@@ -33,7 +33,6 @@
         <% if session[:user_id] %>
           <% user = User.find(session[:user_id]) %>
           <li class="main-user"><a href="http://instagram.com/<%= user.user_name %>">
-            <p class="hidden-xs"><%= user.user_name %></p>
             <img class="img-circle img-responsive" src="<%= user.ig_profile_url %>"></a>
           </li>
           <hr>
@@ -65,6 +64,8 @@
   <div id="ajax">
     <%= yield %>
   </div>
+
+  <script>$('[data-toggle="tooltip"]').tooltip()</script>
 </body>
 </html>
 
