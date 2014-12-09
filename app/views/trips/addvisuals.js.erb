@@ -23,10 +23,11 @@ for (i = 0; i < markers.length; i++) {
   google.maps.event.addListener(markers[i], 'click', function() {
   $.fancybox({
     'type' : 'iframe',
-  href: this.imageUrl,
+  href: this.imageUrl
   // other options
-  'width' : 640,
-  'height' : 480
+  // autoSize : false,
+  //     width    : "50%",
+  //     height   : "auto"
   });     
   }); 
 
