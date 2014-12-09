@@ -57,4 +57,9 @@ class TripsController < ApplicationController
   def clearphotos
   end
 
+  # def copytoclipboard
+  #   @trip=Trip.first
+  #   # Trip.friendly.find(params[:trip_id])
+  # end
+
 end

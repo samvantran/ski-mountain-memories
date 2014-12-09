@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'showphotos' => 'trips#showphotos'
   get 'clearphotos' => 'trips#clearphotos'
 
+  # get 'copytoclipboard' => 'trips#copytoclipboard'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
