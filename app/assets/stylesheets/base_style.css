@@ -56,7 +56,7 @@ html, body {
   text-transform: uppercase;
   color: orange;
 }
-.main-links hr { margin: 10px -10px; width: 130%; }
+.main-links hr { margin: 10px -10px; }
 .main-links li a { text-decoration: none; }
 .main-links li a img { border: 1px solid white; margin: 0 auto; width: 55%; }
 .main-links li.trip-buddies a img { width: 20%; border-radius: 50%; margin: 0.20em; }
