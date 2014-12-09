@@ -4,9 +4,6 @@ overlays = [];
 
 $(document).ready(function() {
 
-
- SKIOverlay.prototype = new google.maps.OverlayView();
-
  function initialize() {
    var mapCanvas = document.getElementById('map-canvas');
    var lat = $('#map-canvas').data('lat'); 
@@ -23,8 +20,8 @@ $(document).ready(function() {
    map = new google.maps.Map(mapCanvas, mapOptions); //global
 
   //global
-  oms = new OverlappingMarkerSpiderfier(map,
-    {markersWontMove: true, markersWontHide: true});
+  // oms = new OverlappingMarkerSpiderfier(map,
+  //   {markersWontMove: true, markersWontHide: true});
  
 
  // for (i = 0; i < visuals.length; i++) { 
@@ -45,6 +42,28 @@ $(document).ready(function() {
  }//initialize Blake
 
 
+
+ if( typeof google !== 'undefined' ) {
+   google.maps.event.addDomListener(window, 'load', initialize);    
+ }
+
+ $(".fancybox-thumb").fancybox({
+   prevEffect  : 'none',
+   nextEffect  : 'none',
+   helpers : {
+     title : {
+       type: 'outside'
+     },
+     thumbs  : {
+       width : 50,
+       height  : 50
+     }
+   }
+ });
+
+});//end of document ready
+
+SKIOverlay.prototype = new google.maps.OverlayView();
 
  /** @constructor */
  function SKIOverlay(bounds, image, map) {
@@ -112,27 +131,6 @@ $(document).ready(function() {
    div.style.width = '1px';
    div.style.height ='1px';
  };
-
- if( typeof google !== 'undefined' ) {
-   google.maps.event.addDomListener(window, 'load', initialize);    
- }
-
- $(".fancybox-thumb").fancybox({
-   prevEffect  : 'none',
-   nextEffect  : 'none',
-   helpers : {
-     title : {
-       type: 'outside'
-     },
-     thumbs  : {
-       width : 50,
-       height  : 50
-     }
-   }
- });
-
-});//end of document ready
-
 
 function addMarker(visual) {
  // var image = {
