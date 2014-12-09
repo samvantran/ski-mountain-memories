@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   # protect_from_forgery :except => [:show, :genhashtag]
 
   def show
-    @trip = Trip.find(params[:id])
+    @trip = Trip.friendly.find(params[:id])
     @lat = @trip.mountain.lat
     @lng = @trip.mountain.lng
     @zoom_level = @trip.mountain.zoom_level
@@ -40,7 +40,7 @@ class TripsController < ApplicationController
     
 
   def addvisuals
-    @trip=Trip.find(params[:trip_id])
+    @trip=Trip.friendly.find(params[:trip_id])
     @visuals=@trip.visuals.all.select {|visual| true}
 
     @profile_pics=@visuals.collect do |visual| 

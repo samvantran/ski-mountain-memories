@@ -4,7 +4,6 @@ var visuals=<%= raw @visuals.to_json%>;
 function check(){
   for (i = 0; i < visuals.length; i++) { 
     if (!(vcontains(oldVisuals, visuals[i]))){
-      console.log("not present")
       addMarker(visuals[i]);
     }
   }

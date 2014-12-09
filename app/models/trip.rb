@@ -1,4 +1,7 @@
 class Trip < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :hashtag
+
   has_and_belongs_to_many :users
   validates_uniqueness_of :hashtag
   belongs_to :mountain

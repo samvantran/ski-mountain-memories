@@ -62,4 +62,4 @@ gem "figaro"
 gem "instagram"
 gem 'newrelic_rpm'
 gem 'jquery-ui-rails'
-
+gem 'friendly_id', '~> 5.0.0'

@@ -50,11 +50,11 @@
           <li class="logout-link"><a href="<%= sessions_destroy_path %>">Log Out</a></li>
         <% else %>
           <li><a href="<%= instagram_oauth_connect_path %>">Sign in with Instagram</a></li>
+          <% end %>
           <hr>
           <li><%= link_to "About", about_path, remote: true %></li>
           <hr>
           <li><%= link_to "Team", team_path, remote: true %></li>
-          <% end %>
         </ul>
       </div>
     </div>
