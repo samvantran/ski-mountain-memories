@@ -4,7 +4,6 @@
 
 
 $(document).ready(function() {
-  
 
   var overlay;
   SKIOverlay.prototype = new google.maps.OverlayView();
@@ -23,13 +22,14 @@ $(document).ready(function() {
     };
     var map = new google.maps.Map(mapCanvas, mapOptions); //global
 
-    // debugger
-    var swBound = new google.maps.LatLng(39.464, -106.0298);
-    var neBound = new google.maps.LatLng(39.467, -106.0299);
-    var bounds = new google.maps.LatLngBounds(swBound, neBound);
-    var srcImage = "http://s.hswstatic.com/gif/snow-skiing-equipment-1.jpg";
-    
-    overlay = new SKIOverlay(bounds, srcImage, map);
+    for (var i = 0, visual; visual = visuals[i]; i++) {
+      var swBound = new google.maps.LatLng(lat, lng);
+      var neBound = new google.maps.LatLng(lat, lng);
+      var bounds = new google.maps.LatLngBounds(swBound, neBound);
+      var srcImage = visual.thumbnail_url;
+
+      overlay = new SKIOverlay(bounds, srcImage, map);
+    };
   }
 
   /** @constructor */
@@ -51,19 +51,20 @@ $(document).ready(function() {
 
   SKIOverlay.prototype.onAdd = function() {
     var div = document.createElement('div');
-    div.style.border = 'solid white';
+    div.style.border = 'solid green';
     div.style.borderWidth = '10px';
     div.style.position = 'absolute';
     div.style.cursor = 'pointer';
     div.className = "fancybox-thumb";
     div.setAttribute("rel", "fancybox-thumb");
-    div.setAttribute("href", "http://upload.wikimedia.org/wikipedia/commons/e/ea/Freestyle_skiing_jump2.jpg");
+    div.setAttribute("href", "http://scontent-a.cdninstagram.com/hphotos-xfa1/t51.2885-15/10817636_759659604113358_950808159_n.jpg");
 
     // Create the img element and attach it to the div.
     var img = document.createElement('img');
     img.src = this.image_;
-    img.style.width = '50%';
-    img.style.height = '50%';
+    img.style.width = '100px';
+    img.style.height = '100px';
+    img.style.borderRadius = '50%';
     div.appendChild(img);
 
     this.div_ = div;
@@ -88,6 +89,7 @@ $(document).ready(function() {
 
     // Resize the image's div to fit the indicated dimensions.
     var div = this.div_;
+    debugger
     div.style.left = sw.x + 'px';
     div.style.top = ne.y + 'px';
     div.style.width = (ne.x - sw.x) + 'px';
