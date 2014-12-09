@@ -15,9 +15,9 @@
 //= require bootstrap
 
 //= require trips.js
-//= require oms.min.js
+
 //= require snowfall.js
-//= require markerlight.js
+
 //= require jquery-ui
 //= require navbarslider.js
 

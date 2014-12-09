@@ -1,12 +1,10 @@
 // # Place all the behaviors and hooks related to the matching controller here.
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
-<<<<<<< HEAD
+
 var map = null;
 $(document).ready(function() {
-=======
-// markers = [];
->>>>>>> master
+  
 
   function initialize() {
     var mapCanvas = document.getElementById('map-canvas');
@@ -21,40 +19,81 @@ $(document).ready(function() {
       mapTypeId: google.maps.MapTypeId.TERRAIN
     };
     map = new google.maps.Map(mapCanvas, mapOptions); //global
-<<<<<<< HEAD
-    map.setCenter(new G)
-    for (var i = 0, visual; visual = visuals[i]; i++) {
-      addMarker(visual);
-    };  
 
-    debugger
+    // for (var i = 0, visual; visual = visuals[i]; i++) {
+    //   addMarker(visual);
+    // };  
 
-    map = new GMap2(document.getElementById('map-canvas'));
-    map.setCenter(new GLatLng(37.4419, -122.1419), 4);
-    map.addControl(new GLargeMapControl());
+    var overlay;
+    SKIOverlay.prototype = new google.maps.OverlayView();
 
-    addRandomMarkers();
-  }
-=======
+    var swBound = new google.maps.LatLng(39.464, -106.0299);
+    var neBound = new google.maps.LatLng(39.465, -106.0298);
+    var bounds = new google.maps.LatLngBounds(swBound, neBound);
+    var srcImage = "http://s.hswstatic.com/gif/snow-skiing-equipment-1.jpg";
+    
+    overlay = new SKIOverlay(bounds, srcImage, map);
 
-//     var iw = new google.maps.InfoWindow();
-//        //global
-//        oms = new OverlappingMarkerSpiderfier(map,
-//          {markersWontMove: true, markersWontHide: true});
+    /** @constructor */
+    function SKIOverlay(bounds, image, map) {
 
-//     oms.addListener('click', function(marker) {
-//       iw.setContent(marker.popup);
-//       iw.open(map, marker);
-//     });
-  
-// }//end of initialize
->>>>>>> master
+      // Initialize all properties.
+      this.bounds_ = bounds;
+      this.image_ = image;
+      this.map_ = map;
+
+      // Define a property to hold the image's div. We'll
+      // actually create this div upon receipt of the onAdd()
+      // method so we'll leave it null for now.
+      this.div_ = null;
+
+      // Explicitly call setMap on this overlay.
+      this.setMap(map);
+    }
+
+    SKIOverlay.prototype.onAdd = function() {
+      var div = document.createElement('div');
+      div.style.border = 'solid white';
+      div.style.borderWidth = '10px';
+      div.style.position = 'absolute';
+      div.style.cursor = 'pointer';
+      div.className = "fancybox-thumb";
+      div.setAttribute("rel", "fancybox-thumb");
+      div.setAttribute("href", "http://upload.wikimedia.org/wikipedia/commons/e/ea/Freestyle_skiing_jump2.jpg");
+
+      // Create the img element and attach it to the div.
+      var img = document.createElement('img');
+      img.src = this.image_;
+      img.style.width = '50%';
+      img.style.height = '50%';
+      div.appendChild(img);
+
+      this.div_ = div;
+
+      // Add the element to the "overlayImage" pane.
+      var panes = this.getPanes();
+      panes.overlayMouseTarget.appendChild(this.div_);
+
+      google.maps.event.addListener(div, 'click', function() {
+        alert( "Thanks for visiting!" );
+      });
+
+  //       GEvent.addDomListener(div, "click", function(event) {
+  //   me.clicked_ = 1;
+  //   GEvent.trigger(me, "click");
+  // });
+    };
+
+
+}
+
+
 
   if( typeof google !== 'undefined' ) {
     google.maps.event.addDomListener(window, 'load', initialize);    
   }
-<<<<<<< HEAD
-    
+
+
   //ADD MARKER CODE BEGIN
   function addMarker(visual) {
     var image = {
@@ -84,43 +123,20 @@ $(document).ready(function() {
   };
   //ADD MAKER CODE END
 
-  //COPIED FROM MARKERLIGHT
-  function addRandomMarkers() {
-    // var numMarkers = parseInt(document.getElementById("numMarkers").value);
-    // var markerType = document.getElementById("markerType").value;
-
-    // Add markers to the map at random locations
-    var bounds = map.getBounds();
-    var southWest = bounds.getSouthWest();
-    var northEast = bounds.getNorthEast();
-    var lngSpan = northEast.lng() - southWest.lng();
-    var latSpan = northEast.lat() - southWest.lat();
-    for (var i = 0; i < numMarkers; i++) {
-      var latlng = new GLatLng(southWest.lat() + latSpan * Math.random(),
-       southWest.lng() + lngSpan * Math.random());
-      if (markerType == "markerlight") {
-        map.addOverlay(new MarkerLight(latlng, 
-          {image:
-            "http://gmaps-samples.googlecode.com/svn/trunk/markers/circular/bluecirclemarker.png"}));
-      } else {
-        map.addOverlay(new GMarker(latlng));
-      }
-    }
-  };
 
 
 
     //CREATE MARKER FOR TESTING ALERT MESSAGE
-    // var image = {
-    //   url: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSBbU1XiZj_pRw5gUrUuReEvcz_QVKs3jtuvZn5FTU3LMM9wakP'
-    // };
+    var image = {
+      url: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSBbU1XiZj_pRw5gUrUuReEvcz_QVKs3jtuvZn5FTU3LMM9wakP'
+    };
 
-    // var marker = new google.maps.Marker({
-    //   position: new google.maps.LatLng(39.470746, -106.083668),
-    //   icon: image,
-    //   map: map,
-    //   animation: google.maps.Animation.DROP
-    // });
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(39.470746, -106.083668),
+      icon: image,
+      map: map,
+      animation: google.maps.Animation.DROP
+    });
 
     // for (var i = 0, visual; visual = visuals[i]; i++) {
     //   var marky = marker;
@@ -163,37 +179,7 @@ $(document).ready(function() {
   });
 
 });
-=======
-// });//end of document.ready
 
-// function addMarker(visual) {
-//   var image = {
-//     url: visual.thumbnail_url,
-//     size: new google.maps.Size(80,80),
-//     origin: new google.maps.Point(0, 0),
-//     anchor: new google.maps.Point(0, 0),
-//     scaledSize: new google.maps.Size(80, 80)
-//   };
-
-//   var marker = new google.maps.Marker({
-//     position: new google.maps.LatLng(visual.lat, visual.lng),
-//     icon: image,
-//     map: map,
-//     animation: google.maps.Animation.DROP,
-//     popup: '<img src=' + visual.thumbnail_url + '>'
-
-//   });
-
-//   markers.push(marker)
-//   var date = new Date(visual.time_taken); 
-//   $('#photo-time').html(date)
-//   oms.addMarker(marker);
-// }
-
-// nm={id: 1, trip_id: 1, thumbnail_url: "http://scontent-b.cdninstagram.com/hphotos-xap1/t51.2885-15/10788021_588576094607319_157669935_s.jpg", lat: 40.704536, lng: -74.014711}
-
-
->>>>>>> master
 
 
 

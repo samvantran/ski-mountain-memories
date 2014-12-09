@@ -4,7 +4,6 @@
 <head>
   <title>SkiMountainMemories</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <script src="https://maps.googleapis.com/maps/api/js"></script>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
@@ -26,44 +25,6 @@
   <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
   <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-  <script type="text/javascript">
-    var map;
-
-    function initialize() {
-      if (GBrowserIsCompatible()) {
-        map = new GMap2(document.getElementById("map_canvas"));
-        map.setCenter(new GLatLng(37.4419, -122.1419), 4);
-        map.addControl(new GLargeMapControl());
-      }
-    }
-    
-    function addRandomMarkers() {
-      var numMarkers = parseInt(document.getElementById("numMarkers").value);
-      var markerType = document.getElementById("markerType").value;
-
-      // Add markers to the map at random locations
-      var bounds = map.getBounds();
-      var southWest = bounds.getSouthWest();
-      var northEast = bounds.getNorthEast();
-      var lngSpan = northEast.lng() - southWest.lng();
-      var latSpan = northEast.lat() - southWest.lat();
-      for (var i = 0; i < numMarkers; i++) {
-        var latlng = new GLatLng(southWest.lat() + latSpan * Math.random(),
-                                 southWest.lng() + lngSpan * Math.random());
-        if (markerType == "markerlight") {
-          map.addOverlay(new MarkerLight(latlng, 
-              {image:
-              "http://gmaps-samples.googlecode.com/svn/trunk/markers/circular/bluecirclemarker.png"}));
-        } else {
-          map.addOverlay(new GMarker(latlng));
-        }
-      }
-    }
-  </script>
-
-
-
 </head>
 
 <body>
