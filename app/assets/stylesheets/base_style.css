@@ -20,16 +20,11 @@ html, body {
   left: 101%;
   top: 0;
   background-color: #111;
-  opacity: 0.70;
+  opacity: 0.85;
   font-weight: bold;
   font-family: Helvetica;
   line-height: 2em;
 }
-/* trouble with responsive logout link at bottom of navbar
- .navbar-links li:last-child {
-  position: relative;
-  padding-top: 150%;
-} */
 
 .navbar-button {
   position: fixed;
@@ -63,7 +58,7 @@ html, body {
 }
 .main-links hr { margin: 10px -10px; width: 130%; }
 .main-links li a { text-decoration: none; }
-.main-links li a img { border: 1px solid white; margin: 0 auto; }
+.main-links li a img { border: 1px solid white; margin: 0 auto; width: 75%; }
 .main-links li.trip-buddies a img { width: 20%; border-radius: 50%; margin: 0.20em; }
 
 #snowfall-canvas {
