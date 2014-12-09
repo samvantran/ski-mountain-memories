@@ -9,6 +9,7 @@ var timer=setInterval(markerTimer, 1000);
 
 <div id="photo-time"> </div>
 <div><h1><%= @trip.hashtag %></h1></div>
+<div><h1><%= trip_url(@trip) %></h1></div>
 <%= content_tag "div", id: "map-canvas", data: {lat: @lat, lng: @lng, zoom: @zoom_level, visuals: @visuals,  trip_id: @trip.id} do %>
 <% end %>
 

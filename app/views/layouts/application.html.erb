@@ -43,7 +43,7 @@
             <hr>
             <li id="sharelink">Share this trip</li>
             #<%= @trip.hashtag %><br>
-            <%= trip_url(@trip) %>
+
             <hr>
             <li class="trip-buddies">Trip buddies <br></li>
             <% end %>
@@ -65,7 +65,6 @@
     <%= yield %>
   </div>
 
-  <script>$('[data-toggle="tooltip"]').tooltip()</script>
 </body>
 </html>
 
