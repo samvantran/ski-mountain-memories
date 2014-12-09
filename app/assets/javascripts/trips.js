@@ -5,7 +5,7 @@
 
 $(document).ready(function() {
 
-  var overlay;
+  var overlays = [];
   SKIOverlay.prototype = new google.maps.OverlayView();
 
   function initialize() {
@@ -22,14 +22,18 @@ $(document).ready(function() {
     };
     var map = new google.maps.Map(mapCanvas, mapOptions); //global
 
-    for (var i = 0, visual; visual = visuals[i]; i++) {
-      var swBound = new google.maps.LatLng(lat, lng);
-      var neBound = new google.maps.LatLng(lat, lng);
-      var bounds = new google.maps.LatLngBounds(swBound, neBound);
-      var srcImage = visual.thumbnail_url;
 
-      overlay = new SKIOverlay(bounds, srcImage, map);
+    for (var i = 0, visual; visual = visuals[i]; i++) {
+      // debugger  
+      var swBound = new google.maps.LatLng(visual.lat, visual.lng);
+      var neBound = new google.maps.LatLng(visual.lat, visual.lng);
+      var bounds = new google.maps.LatLngBounds(swBound, neBound);
+      // bounds = bounds + "i";
+      var srcImage = visual.thumbnail_url;
+      // srcImage = srcImage + "i";
+      overlays.push(new SKIOverlay(bounds, srcImage, map));
     };
+    
   }
 
   /** @constructor */
