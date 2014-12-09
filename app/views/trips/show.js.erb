@@ -1,0 +1,38 @@
+function initialize() {
+    var mapCanvas = document.getElementById('map-canvas');
+    var lat = $('#map-canvas').data('lat'); 
+    var lng = $('#map-canvas').data('lng');
+    var zoom_level = $('#map-canvas').data('zoom');
+    var visuals = $('#map-canvas').data('visuals');
+
+    var mapOptions = {
+      center: new google.maps.LatLng(lat, lng),
+      zoom: zoom_level,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+
+    map = new google.maps.Map(mapCanvas, mapOptions); //global
+
+    var iw = new google.maps.InfoWindow();
+       //global
+       oms = new OverlappingMarkerSpiderfier(map,
+         {markersWontMove: true, markersWontHide: true});
+
+    oms.addListener('click', function(marker) {
+      iw.setContent(marker.popup);
+      iw.open(map, marker);
+    });
+  
+
+  for (i = 0; i < visuals.length; i++) { 
+  addMarker(visuals[i])
+}
+
+}//end of initialize
+google.maps.event.addDomListener(window, 'load', initialize);    
+
+$('#ajax').hide();
+$('#ajax').html("<%= escape_javascript(render :template => 'trips/show.html.erb') %>");
+$('#ajax').fadeIn(550);
+
+initialize();

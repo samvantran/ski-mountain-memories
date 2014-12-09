@@ -17,7 +17,7 @@
 //= require trips.js
 //= require oms.min.js
 //= require snowfall.js
-//= require jquery-ui
+//= require jquery-ui/accordion
 //= require navbarslider.js
 
 

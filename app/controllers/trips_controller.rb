@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  # protect_from_forgery :except => [:show, :genhashtag]
+  protect_from_forgery :except => [:show, :new]
 
   def show
     @trip = Trip.friendly.find(params[:id])

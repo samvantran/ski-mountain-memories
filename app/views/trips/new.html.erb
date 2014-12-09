@@ -4,7 +4,7 @@
 
 <h1>Welcome <%= current_user.user_name %></h1>
 
-<%= form_for @trip do |f| %>
+<%= form_for @trip, remote: true do |f| %>
 
 
     <h2>What mountain are you going to?</h2>
