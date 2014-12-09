@@ -64,7 +64,7 @@ function addMarker(visual) {
   });
 
   markers.push(marker)
-  var date = new Date(visual.time_taken); 
+  var date = new Date(visual.time_taken)
   $('#photo-time').html(date)
   oms.addMarker(marker);
 }

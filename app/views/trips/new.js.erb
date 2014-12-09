@@ -7,4 +7,5 @@ $('#message').html("<h1><%= session[:message] %></h1>")
 $('#message').fadeIn(550);
 $('#message').fadeOut(4000);
 
+<% session[:message]=nil %>
 clearInterval(timer)
