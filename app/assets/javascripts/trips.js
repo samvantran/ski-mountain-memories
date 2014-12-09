@@ -59,8 +59,8 @@ $(document).ready(function() {
     div.style.borderWidth = '3px';
     div.style.position = 'absolute';
     div.style.cursor = 'pointer';
-    div.className = "fancybox-media";
-    // div.setAttribute("rel", "fancybox-media");
+    div.className = "fancybox-thumb";
+    div.setAttribute("rel", "fancybox-media");
     // console.log(srcImage);
     div.setAttribute("href", this.image_);
 
@@ -108,18 +108,17 @@ $(document).ready(function() {
   }
 
   //CODE REQUIRED FOR FANCYBOX TEST
-  $(".fancybox-media").fancybox({
+  $(".fancybox-thumb").fancybox({
     prevEffect  : 'none',
     nextEffect  : 'none',
     helpers : {
-      media : {}
-      // title : {
-      //   type: 'outside'
-      // },
-      // thumbs  : {
-      //   width : 50,
-      //   height  : 50
-      // }
+      title : {
+        type: 'outside'
+      },
+      thumbs  : {
+        width : 50,
+        height  : 50
+      }
     }
   });
 
