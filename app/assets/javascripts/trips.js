@@ -133,3 +133,53 @@ $(document).ready(function() {
 });//end of document ready
 
 
+function addMarker(visual) {
+ // var image = {
+ //   url: visual.thumbnail_url,
+ //   size: new google.maps.Size(80,80),
+ //   origin: new google.maps.Point(0, 0),
+ //   anchor: new google.maps.Point(0, 0),
+ //   scaledSize: new google.maps.Size(80, 80)
+ // };
+
+ // var marker = new google.maps.Marker({
+ //   position: new google.maps.LatLng(visual.lat, visual.lng),
+ //   icon: image,
+ //   map: map,
+ //   animation: google.maps.Animation.DROP,
+ //   popup: '<img src=' + visual.thumbnail_url + '>'
+
+ // });
+var swBound = new google.maps.LatLng(visuals[i].lat, visuals[i].lng);
+var neBound = new google.maps.LatLng(visuals[i].lat, visuals[i].lng);
+var bounds = new google.maps.LatLngBounds(swBound, neBound);
+var srcImage = visuals[i].thumbnail_url;
+
+overlays.push(new SKIOverlay(bounds, srcImage, map));
+ // markers.push(marker)
+ var date = new Date(visual.time_taken)
+ $('#photo-time').html(date)
+ // oms.addMarker(marker);
+}
+
+function vcontains(a, obj) {
+   for (var i = 0; i < a.length; i++) {
+       if (a[i].thumbnail_url === obj.thumbnail_url) {
+           return true;
+       }
+   }
+   return false;
+}
+
+function contains(a, obj) {
+   for (var i = 0; i < a.length; i++) {
+       if (a[i]=== obj) {
+           return true;
+       }
+   }
+   return false;
+}
+
+function copyToClipboard(text) {
+ window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+}
