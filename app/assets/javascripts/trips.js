@@ -1,9 +1,10 @@
 markers = [];
 profile_urls=[];
+overlays = [];
 
 $(document).ready(function() {
 
- overlays = [];
+
  SKIOverlay.prototype = new google.maps.OverlayView();
 
  function initialize() {
