@@ -1,7 +1,8 @@
 $(function() {
 
-  var slide = false;
-  $('.navbar-button').on('click', function() {
+  var slide = true;
+  $('.navbar-button').on('click', function(event) {
+    event.stopPropagation();
     if( slide === false ) {
       $('.navbar-links').animate({
         left: "-=25%" }, 500 );
@@ -14,8 +15,18 @@ $(function() {
       $('.navbar-button').animate({
         left: "+=25%" }, 500 );
       slide = false;
-    }
-  });
+      }
+    })
+
+  $('body').on('click', function() {
+    if( slide === true ) {
+      $('.navbar-links').animate({
+        left: "+=25%" }, 500 );
+      $('.navbar-button').animate({
+        left: "+=25%" }, 500 );
+      slide = false;
+      }
+    })
 
 // There is a bug in dropdown.js that shows an error when clicking
 // anywhere on the screen. This is is a hack fix found 

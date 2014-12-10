@@ -17,8 +17,8 @@ html, body {
   position: fixed;
   z-index: 99;
   height: 100%;
-  width: 24%;
-  left: 101%;
+  width: 25%;
+  left: 75%;
   top: 0;
   background-color: #111;
   opacity: 0.85;
@@ -30,7 +30,7 @@ html, body {
 .navbar-button {
   position: fixed;
   z-index: 100;
-  left: 96%;
+  left: 71%;
   margin-top: 1%;
   height: 40px;
   width: 40px;
