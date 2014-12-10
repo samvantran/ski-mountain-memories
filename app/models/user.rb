@@ -18,5 +18,6 @@ def self.destroy_stuv
   User.destroy_all
   Visual.destroy_all
 end
+
 end
 
