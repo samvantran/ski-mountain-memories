@@ -1,3 +1,7 @@
+html *
+{
+  font-family: 'Roboto Condensed' !important
+}
 
 html, body {
   text-align: center;
@@ -7,11 +11,13 @@ html, body {
      -moz-background-size: cover;
        -o-background-size: cover;
           background-size: cover;
-  font-family: Helvetica, Arial, san-serif;
+/*  font-family: Helvetica, Arial, san-serif;*/
   height: 100%;
+  width: 100%;
   margin: 0px;
   padding: 0px;
 }
+
 
 .navbar-links {
   position: fixed;
@@ -73,9 +79,9 @@ html, body {
 #map-canvas {
   position: fixed;
   margin: auto;
-  border-radius:15px;
-  height: 35em;
-  width: 90%;
+  border-radius: 20px;
+  height: 55em;
+  width: 60%;
 }
 
 .form-container {
@@ -87,6 +93,7 @@ html, body {
   padding: 0.1em 0 1.5em 0;
   background-color: #111;
   opacity: 0.85;
+  border-radius: 20px;
 }
 .form-container h1, .form-container h2 { 
   color: orange;
@@ -118,11 +125,68 @@ html, body {
   padding: 1em;
   opacity: 0.9;
   color: #eee;
+  border-radius: 20px;
 }
+.about {
+  background-color: #111;
+  margin: 5em 0;
+  padding: 1em;
+  opacity: 0.9;
+  color: #eee;
+  border-radius: 20px;
+}
+
+.user {
+  background-color: #111;
+  margin: 5em 0;
+  padding: 1em;
+  opacity: 0.9;
+  color: #eee;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.show {
+  background-color: #111;
+  margin: 0 0;
+  padding: 2% 0;
+  opacity: 0.9;
+  color: #eee;
+  height: 100%;
+  width: 100%;
+}
+
+.about h1, .team h1, .team h3, .team h4, .user h2, .user h4, .orange{ 
+  color: orange;
+}
+
+.text-left {
+  padding: 0 0;
+}
+
+.nobullets {
+  list-style: none;
+}
+
+.notice {
+  font-size: 3em;
+  margin: 0.25em; 
+  color: red;
+  z-index: 99;
+}
+
 .team img {
   border-radius: 50%;
   margin-top: 1em;
   width: 40%;
+}
+
+.ui-accordion-header{
+   background:#F3535D;
+   color: black;
+}
+.ui-accordion .ui-accordion-header{
+  margin: 0;
 }
 
 /* MEDIA QUERIES FOR RESPONSIVENESS */

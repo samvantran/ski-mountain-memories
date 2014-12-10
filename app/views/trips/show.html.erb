@@ -4,15 +4,15 @@
 function markerTimer(){$.get( "/addvisuals", {trip_id: $('#map-canvas').data('trip-id')},"script");}
 var timer=setInterval(markerTimer, 1000);
 </script>
+<div class ="show">
+<div><h1 class="orange"><%= @trip.hashtag %></h1></div>
 
-<%= link_to "Show Photos", showphotos_path, remote: true %>
-<%= link_to "Clear Photos", clearphotos_path, remote: true %>
-
-<div id="photo-time"> </div>
-<div><h1><%= @trip.hashtag %></h1></div>
-<div><h1><%= trip_url(@trip) %></h1></div>
 <%= content_tag "div", id: "map-canvas", data: {lat: @lat, lng: @lng, zoom: @zoom_level, visuals: @visuals,  trip_id: @trip.id} do %>
 <% end %>
+<div><h1 class="orange"><%= trip_url(@trip) %></h1></div>
+<%= link_to "Show Photos", showphotos_path, remote: true %>
+<%= link_to "Clear Photos", clearphotos_path, remote: true %>
+</div>
 
 
-
+<div id="photo-time"> </div>

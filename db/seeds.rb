@@ -7,21 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Mountain.create(lat: 39.47, lng: -106.07, zoom_level: 16, name: "Breckenridge, CO")
-Mountain.create(lat: 40.704933, lng: -74.013758, zoom_level: 16, name: "Bowling Green Mountain, NY")
-Mountain.create(lat: 40.7061700, lng: -73.8357330, zoom_level: 16, name: "Jimmy's House")
-
-
-Visual.create(time_taken: 1113111118111,lat: 40.704536, lng: -74.014711, trip_id: 1,thumbnail_url: 'http://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wpdms_20020923b_bowling_green_composite.jpg/250px-Wpdms_20020923b_bowling_green_composite.jpg', standard_url: 'http://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wpdms_20020923b_bowling_green_composite.jpg/250px-Wpdms_20020923b_bowling_green_composite.jpg')
-Visual.create(time_taken: 11411111311,lat: 40.705585, lng: -74.013434, trip_id: 1, thumbnail_url: 'http://revolutionaryday.com/usroute9w/nyc/bwowlinggrn.jpg', standard_url: 'http://revolutionaryday.com/usroute9w/nyc/bwowlinggrn.jpg')
-Visual.create(lat: 39.470746, lng: -106.083668, trip_id: 2, standard_url: 'http://mtnweekly.com/wp-content/uploads/2010/11/2010-Breck-Opening-Day-SM-014-websize.jpg', thumbnail_url: 'http://www.turnagaintimes.com/current%20issue/2010-02-18/images/cross-country-trails.jpg')
-Visual.create(time_taken: 1133341115111,lat: 39.466874, lng: -106.080028, trip_id: 2, thumbnail_url: 'http://www.turnagaintimes.com/current%20issue/2010-02-18/images/cross-country-trails.jpg', standard_url: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSBbU1XiZj_pRw5gUrUuReEvcz_QVKs3jtuvZn5FTU3LMM9wakP', thumbnail_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcVW-e67sjdlvurIH9ZSQ80jDY-6FI0aCfOFQZoEO6LjzheC1m')
+Mountain.create(lat: 40.810699, lng: -75.520779, zoom_level: 16, name: "Vail, CO")
+Mountain.create(lat: 40.810699, lng: -75.520779, zoom_level: 16, name: "Blue Mountain, PA")
+Mountain.create(lat: 39.603861, lng: -106.355467, zoom_level: 16, name: "Bowling Green Mountain, NY")
 
 Visual.create(trip_id: 1, 
  media_type: "image", 
  time_taken: 1418065411, 
  thumbnail_url: "http://scontent-a.cdninstagram.com/hphotos-xaf1/t5...", 
  standard_url: "http://scontent-a.cdninstagram.com/hphotos-xaf1/t5...", 
- caption: "#instago #instadaily #style #webstagram #look #ins...", 
+ caption: "#breck #instago #instadaily #style #webstagram #look #ins...", 
  lat: 34.7666428, 
  lng: 32.4466561, 
  username: "ifigenia_iakovidou", 

@@ -21,19 +21,19 @@ class TripsController < ApplicationController
 
   def create
     if params[:trip][:mountain_id]=="" #no mountain entered
-      session[:message]="Please select a mountain"
+      @message="please select a mountain"
     else
       trip = Trip.new(mountain_id: params[:trip][:mountain_id], hashtag: params[:trip][:hashtag])
       trip.users << current_user
       if !trip.save #couldn't save.
       # JJK: I think this kind of behavior should be handled in the model and then written to ERRORS, and ERROrs should be in the view
-        session[:message]="Please select another hashtag"
+        @message="please select another hashtag"
       else
         Instagram.create_subscription("tag", "http://ski-mountain-memories.herokuapp.com/sessions/sub_callback", object_id: trip.hashtag)
         redirect_to trip_path(trip.id) and return
       end
     end
-      redirect_to new_trip_path
+      redirect_to new_trip_path, notice: @message
     end
     
 

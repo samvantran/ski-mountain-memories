@@ -44,6 +44,10 @@ $(function() {
   }
 
 
+$('.notice').hide();
+$('.notice').fadeIn(550);
+$('.notice').fadeOut(4000);
+
 });//end of document.ready
 
 function addMarker(visual) {
@@ -68,8 +72,8 @@ function addMarker(visual) {
   });
 
   markers.push(marker)
-  var date = new Date(visual.time_taken)
-  $('#photo-time').html(date)
+  // var date = new Date(visual.time_taken)
+  // $('#photo-time').html(date)
   oms.addMarker(marker);
 }
 

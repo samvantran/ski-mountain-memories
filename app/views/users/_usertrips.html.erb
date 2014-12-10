@@ -1,8 +1,7 @@
   
 <li>
 <ul>
-<p><%= link_to  usertrips.hashtag, trip_url(Trip.find(usertrips.id))%></p>
-<p><%= usertrips.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%d %b. %Y") %></p>
-
+<h2><%= link_to  usertrips.hashtag, trip_url(Trip.find(usertrips.id))%></h2>
+<h4><%= usertrips.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%d %b. %Y") %></h4>
 </ul>
 </li>
