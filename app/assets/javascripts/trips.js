@@ -16,6 +16,7 @@ $(function() {
     var mapOptions = {
       center: new google.maps.LatLng(lat, lng),
       zoom: zoom_level,
+
       mapTypeId: google.maps.MapTypeId.TERRAIN
     };
 
@@ -52,12 +53,14 @@ function addMarker(visual) {
     origin: new google.maps.Point(0, 0),
     anchor: new google.maps.Point(0, 0),
     scaledSize: new google.maps.Size(80, 80)
+
   };
 
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(visual.lat, visual.lng),
     icon: image,
     map: map,
+    borderRadius: 50,
     animation: google.maps.Animation.DROP,
     imageUrl: visual.standard_url,
     popup: '<img src=' + visual.thumbnail_url + '>'
