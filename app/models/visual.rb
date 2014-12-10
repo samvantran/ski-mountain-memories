@@ -7,8 +7,8 @@ class Visual < ActiveRecord::Base
 private
 
 def destroy_extra_visuals
-  if Visual.count >5000
-    Visual.where("id > 0 AND id < 3000").delete_all
+  if Visual.count >3000
+    Visual.select(:id).limit(1000).destroy_all
   end
 end
 
