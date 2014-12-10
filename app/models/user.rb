@@ -10,6 +10,14 @@ class User < ActiveRecord::Base
     else
       Instagram.delete_subscription(object: "tag", object_id: tag_id)
   end
+
+  def self.destroy_stuv
+    self.destroy_subs
+    Trip.destroy_all
+    User.destroy_all
+    Visual.destroy_all
+  end
+
 end
 end
 
