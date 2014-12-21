@@ -4,13 +4,13 @@ class Visual < ActiveRecord::Base
   before_create :destroy_extra_visuals
 
 
-private
+  private
 
-def destroy_extra_visuals
-  if Visual.count >5000
-    Visual.where("id > 0 AND id < 3000").delete_all
+  def destroy_extra_visuals
+    if Visual.count >5000
+      Visual.where("id > 0 AND id < 3000").delete_all
+    end
   end
-end
 
 end
 

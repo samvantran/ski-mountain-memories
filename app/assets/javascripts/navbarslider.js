@@ -4,26 +4,20 @@ $(function() {
   $('.navbar-button').on('click', function(event) {
     event.stopPropagation();
     if( slide === false ) {
-      $('.navbar-links').animate({
-        left: "-=25%" }, 500 );
-      $('.navbar-button').animate({
-        left: "-=25%" }, 500 );
+      $('.navbar-links').animate({  left: "-=25%" }, 500 );
+      $('.navbar-button').animate({ left: "-=25%" }, 500 );
       slide = true;
     } else {
-      $('.navbar-links').animate({
-        left: "+=25%" }, 500 );
-      $('.navbar-button').animate({
-        left: "+=25%" }, 500 );
+      $('.navbar-links').animate({  left: "+=25%" }, 500 );
+      $('.navbar-button').animate({ left: "+=25%" }, 500 );
       slide = false;
       }
     })
 
   $('body').on('click', function() {
     if( slide === true ) {
-      $('.navbar-links').animate({
-        left: "+=25%" }, 500 );
-      $('.navbar-button').animate({
-        left: "+=25%" }, 500 );
+      $('.navbar-links').animate({  left: "+=25%" }, 500 );
+      $('.navbar-button').animate({ left: "+=25%" }, 500 );
       slide = false;
       }
     })

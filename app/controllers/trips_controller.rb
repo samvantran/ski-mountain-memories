@@ -25,12 +25,13 @@ class TripsController < ApplicationController
     else
       trip = Trip.new(mountain_id: params[:trip][:mountain_id], hashtag: params[:trip][:hashtag])
       trip.users << current_user
-      if !trip.save #couldn't save.
-      # JJK: I think this kind of behavior should be handled in the model and then written to ERRORS, and ERROrs should be in the view
-        @message="please select another hashtag"
-      else
+      if trip.save
         Instagram.create_subscription("tag", "http://ski-mountain-memories.herokuapp.com/sessions/sub_callback", object_id: trip.hashtag)
         redirect_to trip_path(trip.id) and return
+      else
+        # JJK: I think this kind of behavior should be handled in the model and then written to ERRORS, 
+        # and ERROrs should be in the view
+        @message="please select another hashtag"
       end
     end
       redirect_to new_trip_path, notice: @message
@@ -38,10 +39,10 @@ class TripsController < ApplicationController
     
 
   def addvisuals
-    @trip=Trip.friendly.find(params[:trip_id])
-    @visuals=@trip.visuals.all.select {|visual| true}
+    @trip = Trip.friendly.find(params[:trip_id])
+    @visuals = @trip.visuals.all.select {|visual| true}
 
-    @profile_pics=@visuals.collect do |visual| 
+    @profile_pics = @visuals.collect do |visual| 
       visual.profile_pic if visual.trip_id == @trip.id
     end
 
@@ -56,10 +57,5 @@ class TripsController < ApplicationController
 
   def clearphotos
   end
-
-  # def copytoclipboard
-  #   @trip=Trip.first
-  #   # Trip.friendly.find(params[:trip_id])
-  # end
 
 end
