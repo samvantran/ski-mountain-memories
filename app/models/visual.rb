@@ -3,14 +3,10 @@ class Visual < ActiveRecord::Base
   belongs_to :trip
   before_create :destroy_extra_visuals
 
-
   private
-
-  def destroy_extra_visuals
-    if Visual.count >5000
-      Visual.where("id > 0 AND id < 3000").delete_all
+    def destroy_extra_visuals
+      Visual.select(:id).limit(1000).destroy_all if Visual.count > 3000
     end
-  end
 
 end
 
